@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.0" method="upgrade">
+  <name>Contact Enhanced Form</name>
+  <creationDate>29-Jul-2013</creationDate>
+  <author>Douglas Machado </author>
+  <authorEmail>admin@fok.com.br</authorEmail>
+  <authorUrl>www.idealextensions.com</authorUrl>
+  <copyright>Copyright (C) 2006 - 2011 iDeal Extensions for Joomla!. 		All rights reserved.</copyright>
+  <license>GNU General Public License version 2 or later; see 		LICENSE.txt</license>
+  <version>3.0.8</version>
+  <description>MOD_CE_FORM_XML_DESCRIPTION</description>
+  <files folder="site">
+    <folder>language</folder>
+    <folder>tmpl</folder>
+    <filename>helper.php</filename>
+    <filename>index.html</filename>
+    <filename module="mod_ce_form">mod_ce_form.php</filename>
+  </files>
+  <params/>
+  <config>
+    <fields name="params" addfieldpath="/administrator/components/com_contactenhanced/models/fields">
+      
+      
+    <fieldset name="basic">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      <field name="contactid" type="modal_contacts" default="" label="MOD_CE_FORM_SELECT_CONTACT_LABEL" description="MOD_CE_FORM_SELECT_CONTACT_DESC" required="true">
+		</field><field name="spacer" type="spacer" default="" label="" hr="true" description="">
+		</field><field name="show_form" type="list" default="1" label="MOD_CE_FORM_SHOW_FORM_LABEL" description="MOD_CE_FORM_SHOW_FORM_DESC">
+          
+          
+        <option value="0">JNO</option><option value="1">JYES</option></field><field name="show_map" type="list" default="0" label="MOD_CE_FORM_SHOW_MAP_LABEL" description="MOD_CE_FORM_SHOW_MAP_DESC">
+          
+          
+          
+        <option value="0">JNO</option><option value="before_form">MOD_CE_FORM_OPT_BEFORE_FORM</option><option value="after_form">MOD_CE_FORM_OPT_AFTER_FORM</option></field><field name="show_contact_details" type="list" default="0" label="MOD_CE_FORM_SHOW_DETAILS_LABEL" description="MOD_CE_FORM_SHOW_DETAILS_DESC">
+          
+          
+          
+          
+          
+        <option value="0">JNO</option><option value="before_form">MOD_CE_FORM_OPT_BEFORE_FORM</option><option value="after_form">MOD_CE_FORM_OPT_AFTER_FORM</option><option value="before_map">MOD_CE_FORM_OPT_BEFORE_MAP</option><option value="after_map">MOD_CE_FORM_OPT_AFTER_MAP</option></field><field name="show_misc" type="list" default="0" label="MOD_CE_FORM_MISC_INFO_LABEL" description="MOD_CE_FORM_MISC_INFO_DESC">
+          
+          
+          
+          
+        <option value="0">JNO</option><option value="end">MOD_CE_FORM_OPT_SHOW_AT_THE_END</option><option value="after_details">MOD_CE_FORM_OPT_AFTER_DETAILS</option><option value="before_form">MOD_CE_FORM_OPT_BEFORE_FORM</option></field><field name="show_image" type="list" default="0" label="MOD_CE_FORM_SHOW_CONTACT_IMAGE_LABEL" description="MOD_CE_FORM_SHOW_CONTACT_IMAGE_DESC">
+          
+          
+          
+        <option value="0">JNO</option><option value="before_details">MOD_CE_FORM_OPT_BEFORE_DETAILS</option><option value="after_details">MOD_CE_FORM_OPT_AFTER_DETAILS</option></field><field name="link-module-title" type="radio" default="0" label="MOD_CE_FORM_LINK_MODULE_TITLE_LABEL" description="MOD_CE_FORM_LINK_MODULE_TITLE_DESC">
+          
+          
+        <option value="0">JNO</option><option value="1">JYES</option></field><field name="introtext" type="textarea" cols="45" rows="3" default="" label="MOD_CE_FORM_INTROTEXT_LABEL" description="MOD_CE_FORM_INTROTEXT_DESC" filter="JComponentHelper::filterText">
+		</field><field name="posttext" type="textarea" cols="45" rows="3" default="" label="MOD_CE_FORM_POSTTEXT_LABEL" description="MOD_CE_FORM_POSTTEXT_DESC" filter="JComponentHelper::filterText">
+		</field><field name="after_submit_title" type="title" default="" label="What will be displayed after the form is submitted?" description="It will use the Contact Enhanced global settings or the page will be redirected, if there is a redirect for the contact (under Contact Form slider)">
+		</field><field name="after_submit" type="switch" default="" label="MOD_CE_FORM_OPT_ACTION_AFTER_SUBMIT_LABEL" description="MOD_CE_FORM_OPT_ACTION_AFTER_SUBMIT_DESC">
+          
+          
+          
+        <option value="global">JGLOBAL_USE_GLOBAL</option><option value="reload">MOD_CE_FORM_OPT_RELOAD_PAGE</option><option value="javascript">MOD_CE_FORM_OPT_JAVASCRIPT_ALERT</option></field><field name="after_submit-javascript-show_form" type="radio" default="1" label="MOD_CE_FORM_OPT_ACTION_AFTER_SUBMIT_SHOW_FORM_LABEL" description="MOD_CE_FORM_OPT_ACTION_AFTER_SUBMIT_SHOW_FORM_DESC">
+          
+          
+        <option value="1">JSHOW</option><option value="0">JHIDE</option></field><field name="after_submit-javascript-show_system_message" type="radio" default="1" label="MOD_CE_FORM_OPT_ACTION_AFTER_SUBMIT_SHOW_SYSTEM_MESSAGE_LABEL" description="MOD_CE_FORM_OPT_ACTION_AFTER_SUBMIT_SHOW_SYSTEM_MESSAGE_DESC">
+          
+          
+        <option value="1">JSHOW</option><option value="0">JHIDE</option></field></fieldset><fieldset name="advanced">
+        
+        
+        
+        
+        
+        
+      <field name="set_itemid" type="sql" key_field="value" value_field="text" query="SELECT id as value, CONCAT_WS(' - ', menutype,title) AS text        FROM #__menu        WHERE link LIKE '%option=com_contactenhanced%'        AND published=1        ORDER BY menutype ASC, title ASC" label="COM_CONTACTENHANCED_FIELD_SETITEMID_LABEL" description="COM_CONTACTENHANCED_FIELD_SETITEMID_DESC">
+          
+        <option value="">JNONE</option></field><field name="layout" type="modulelayout" label="JFIELD_ALT_LAYOUT_LABEL" description="JFIELD_ALT_MODULE_LAYOUT_DESC">
+		</field><field name="moduleclass_sfx" type="text" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC">
+		</field><field name="cache" type="list" default="1" label="COM_MODULES_FIELD_CACHING_LABEL" description="COM_MODULES_FIELD_CACHING_DESC">
+          
+          
+        <option value="1">JGLOBAL_USE_GLOBAL</option><option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option></field><field name="cache_time" type="text" default="900" label="COM_MODULES_FIELD_CACHE_TIME_LABEL" description="COM_MODULES_FIELD_CACHE_TIME_DESC">
+		</field><field name="cachemode" type="hidden" default="static">
+          
+        <option value="static"/></field></fieldset></fields>
+  </config>
+</extension>

@@ -1,0 +1,15 @@
+.isk-instructions{text-align:center;margin:0;padding:10px;border-bottom:4px solid #999}
+.isk-instructions span{background-color:#F0F0F0}
+.isk-key{display:block;font-size:130%}
+.isk-term{font-weight:bold;padding:3px;background-color:#F0F0F0}
+span.isk-term-1,span.isk-term-11,span.isk-term-21,span.isk-term-31{background-color:#FF6}
+span.isk-term-2,span.isk-term-12,span.isk-term-22,span.isk-term-32{background-color:#A0FFFF}
+span.isk-term-3,span.isk-term-13,span.isk-term-23,span.isk-term-33{background-color:#9F9}
+span.isk-term-4,span.isk-term-14,span.isk-term-24,span.isk-term-34{background-color:#F99}
+span.isk-term-5,span.isk-term-15,span.isk-term-25,span.isk-term-35{background-color:#F6F}
+span.isk-term-6,span.isk-term-16,span.isk-term-26,span.isk-term-36{background-color:#800}
+span.isk-term-7,span.isk-term-17,span.isk-term-27,span.isk-term-37{background-color:#0A0}
+span.isk-term-8,span.isk-term-18,span.isk-term-28,span.isk-term-38{background-color:#886800}
+span.isk-term-9,span.isk-term-19,span.isk-term-29,span.isk-term-39{background-color:#004699}
+span.isk-term-10,span.isk-term-20,span.isk-term-30,span.isk-term-40{background-color:#909}
+span.highlight{background-color:#FFC !important;font-weight:bold;padding:1px 4px}

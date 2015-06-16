@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" version="3.0" method="upgrade" group="system">
+  <name>System - iSeKeywords</name>
+  <creationDate>29-Jul-2013</creationDate>
+  <author>Douglas Machado</author>
+  <authorEmail>admin@fok.com.br</authorEmail>
+  <authorUrl>http://idealextensions.com</authorUrl>
+  <copyright>(C) 2013 idealextensions.com - Brazil</copyright>
+  <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+  <version>3.0.0</version>
+  <description>PLG_SYSTEM_ISEKEYWORDS_XML_DESCIPTION</description>
+  <files folder="site">
+    <folder>elements</folder>
+    <folder>language</folder>
+    <filename>index.html</filename>
+    <filename plugin="isekeywords">isekeywords.css</filename>
+    <filename plugin="isekeywords">isekeywords.php</filename>
+  </files>
+  <params/>
+  <config>
+    <fields name="params" addfieldpath="/plugins/system/isekeywords/elements">
+      
+      
+    <fieldset name="basic">
+        
+        
+        
+        
+        
+      <field name="inst-style-title" type="title" label="PLG_SYSTEM_ISEKEYWORDS_STYLING_RESULTS_LABEL" description="PLG_SYSTEM_ISEKEYWORDS_STYLING_RESULTS_DESC"/><field name="inst-lang-title" type="title" label="PLG_SYSTEM_ISEKEYWORDS_LANGUAGE_INSTRUCTIONS_LABEL" description="PLG_SYSTEM_ISEKEYWORDS_LANGUAGE_INSTRUCTIONS_DESC"/><field name="load-instructions" type="radio" default="0" label="PLG_SYSTEM_ISEKEYWORDS_DISPLAY_INSTRUCTIONS_LABEL" description="PLG_SYSTEM_ISEKEYWORDS_DISPLAY_INSTRUCTIONS_DESC">
+          
+          
+        <option value="1">JYES</option><option value="0">JNO</option></field><field name="enable-highlight" type="radio" default="0" label="PLG_SYSTEM_ISEKEYWORDS_ENABLE_HIGHLIGHT_LABEL" description="PLG_SYSTEM_ISEKEYWORDS_ENABLE_HIGHLIGHT_DESC">
+          
+          
+        <option value="1">JYES</option><option value="0">JNO</option></field><field name="integrate-ce" type="radio" default="1" label="PLG_SYSTEM_ISEKEYWORDS_INTEGRATE_CONTACT_ENHANCED_LABEL" description="PLG_SYSTEM_ISEKEYWORDS_INTEGRATE_CONTACT_ENHANCED_DESC">
+          
+          
+        <option value="1">JYES</option><option value="0">JNO</option></field></fieldset><fieldset name="advanced">
+        
+      <field name="exclude" type="textarea" cols="40" rows="5" default="a,e,i,o,u,an,the,for,is,in,are,was,and,from,of,on,with,this,that,or,these,those" label="PLG_SYSTEM_ISEKEYWORDS_EXCLUDE_FROM_MATCH_LABEL" description="PLG_SYSTEM_ISEKEYWORDS_EXCLUDE_FROM_MATCH_DESC"/></fieldset></fields>
+  </config>
+</extension>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.0" method="upgrade">
+  <name>Contact Enhanced Alpha Index</name>
+  <creationDate>29-Jul-2013</creationDate>
+  <author>Douglas Machado </author>
+  <authorEmail>admin@fok.com.br</authorEmail>
+  <authorUrl>www.idealextensions.com</authorUrl>
+  <copyright>Copyright (C) 2006 - 2013 iDeal Extensions for Joomla!. All		rights reserved.</copyright>
+  <license>GNU General Public License version 2 or later; see LICENSE.txt	</license>
+  <version>3.0</version>
+  <description>MOD_CE_ALPHAINDEX_XML_DESCRIPTION</description>
+  <files folder="site">
+    <folder>assets</folder>
+    <folder>language</folder>
+    <folder>tmpl</folder>
+    <filename>helper.php</filename>
+    <filename>index.html</filename>
+    <filename module="mod_ce_alphaindex">mod_ce_alphaindex.php</filename>
+  </files>
+  <params/>
+  <config>
+    <fields name="params" addfieldpath="/administrator/components/com_contactenhanced/models/fields">
+      
+      
+    <fieldset name="basic">
+        
+        
+        
+        
+        
+      <field name="set_itemid_title" type="title" label="MOD_CE_ALPHAINDEX_FIELD_SETITEMID_LABEL" description="MOD_CE_ALPHAINDEX_FIELD_SETITEMID_DESC">
+				</field><field name="set_itemid" type="sql" key_field="value" value_field="text" query="SELECT id as value, CONCAT_WS(' - ', menutype,title) AS text        FROM #__menu        WHERE link LIKE '%option=com_contactenhanced&amp;view=search%'        AND published=1        ORDER BY menutype ASC, title ASC" label="MOD_CE_ALPHAINDEX_FIELD_SETITEMID_LABEL" description="MOD_CE_ALPHAINDEX_FIELD_SETITEMID_DESC">
+          
+        <option value="">JNONE</option></field><field name="letterTitle" type="title" label="MOD_CE_ALPHAINDEX_FIELD_LETTERS_LABEL" description="MOD_CE_ALPHAINDEX_FIELD_LETTERS_DESC"/><field name="letter" type="text" default="A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z" label="MOD_CE_ALPHAINDEX_FIELD_LETTERS_LABEL" description="MOD_CE_ALPHAINDEX_FIELD_LETTERS_DESC"/><field name="load_css" type="radio" label="CE_CF_TYPE_CSS" default="1" description="CE_CF_TYPE_CSS">
+          
+          
+        <option value="0">JNO</option><option value="1">JYES</option></field></fieldset><fieldset name="advanced">
+        
+        
+        
+        
+        
+      <field name="layout" type="modulelayout" label="JFIELD_ALT_LAYOUT_LABEL" description="JFIELD_ALT_MODULE_LAYOUT_DESC">
+				</field><field name="moduleclass_sfx" type="text" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC">
+				</field><field name="cache" type="list" default="1" label="COM_MODULES_FIELD_CACHING_LABEL" description="COM_MODULES_FIELD_CACHING_DESC">
+          
+          
+        <option value="1">JGLOBAL_USE_GLOBAL</option><option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option></field><field name="cache_time" type="text" default="900" label="COM_MODULES_FIELD_CACHE_TIME_LABEL" description="COM_MODULES_FIELD_CACHE_TIME_DESC">
+				</field><field name="cachemode" type="hidden" default="static">
+          
+        <option value="static"/></field></fieldset></fields>
+  </config>
+</extension>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" version="3.0" method="upgrade" group="content">
+  <name>Content - Contact Enhanced Form</name>
+  <creationDate>29-Jul-2013</creationDate>
+  <author>Douglas Machado</author>
+  <authorEmail>admin@fok.com.br</authorEmail>
+  <authorUrl>http://idealextensions.com</authorUrl>
+  <copyright>(C) 2013 idealextensions.com - Brazil</copyright>
+  <license>GNU General Public License version 2 or later; see LICENSE.txt	</license>
+  <version>3.1</version>
+  <description>PLG_CONTENT_CONTACTENHANCED_XML_DESCRIPTION</description>
+  <files folder="site">
+    <folder>language</folder>
+    <filename plugin="contactenhanced">contactenhanced.php</filename>
+    <filename>index.html</filename>
+  </files>
+  <params/>
+  <config>
+    <fields name="params" addfieldpath="/administrator/components/com_contactenhanced/models/fields">
+      
+      
+    <fieldset name="basic">
+        
+        
+        
+      <field name="contact_postion" type="list" default="" label="PLG_CE_POSITION_TO_LOAD_LABEL" description="PLG_CE_POSITION_TO_LOAD_DESC">
+          
+          
+          
+        <option value="">PLG_CE_POSITION_NOT_DEFINED</option><option value="right">PLG_CE_RIGHT</option><option value="left">PLG_CE_LEFT</option></field><field name="after_submit" type="list" default="global" label="PLG_CE_AFTER_SUBMIT_LABEL" description="PLG_CE_AFTER_SUBMIT_DESC">
+          
+          
+          
+        <option value="form">Form</option><option value="thankyoumessage">Thank you message</option><option value="global">JGLOBAL_USE_GLOBAL</option></field><field name="contact_layer_style" type="textarea" default="padding:0 5px 0 15px" description="PLG_CE_LAYER_STYLE_DESC" label="PLG_CE_LAYER_STYLE_LABEL" rows="6" cols="33"/></fieldset><fieldset name="advanced">
+        
+        
+        
+        
+        
+        
+        
+      <field name="set_itemid" type="sql" key_field="value" value_field="text" query="SELECT id as value, CONCAT_WS(' - ', menutype,title) AS text        FROM #__menu        WHERE link LIKE '%option=com_contactenhanced%'        AND published=1        ORDER BY menutype ASC, title ASC" label="COM_CONTACTENHANCED_FIELD_SETITEMID_LABEL" description="COM_CONTACTENHANCED_FIELD_SETITEMID_DESC">
+          
+        <option value="">JNONE</option></field><field name="title-modal" type="title" label="Modal Options" description="These options below are the default Modal options, however they can be overridden by the modal_template, modal_width and modal_height syntax options">
+				</field><field name="plg_display_type" type="radio" default="embedded" label="Display type" description="Whether to set the default display mode to Modal Window (Lightbox/Squeezebox style) instead of the embedded form">
+          
+          
+        <option value="modal">Modal</option><option value="embedded">Embedded</option></field><field name="plg_display_text" type="text" label="Text" description="Text to that will display when display type is set to modal"/><field name="template" type="folderlist" hide_none="1" directory="/templates" exclude="system" label="Use Template" description="Some templates set a width to the content container, therefore you can choose another template. Recommended in these cases is beez5">
+				</field><field name="window-size-width" type="text" default="800" label="Window Width" description="Width of the modal window">
+				</field><field name="window-size-height" type="text" default="480" label="Window Height" description="Height of the modal window">
+				</field></fieldset></fields>
+  </config>
+</extension>

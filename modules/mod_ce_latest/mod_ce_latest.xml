@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.0" method="upgrade">
+  <name>Contact Enhanced Latest Submitted Forms</name>
+  <creationDate>29-Jul-2013</creationDate>
+  <author>IdealExtensions.com</author>
+  <authorEmail>admin@idealextensions.com</authorEmail>
+  <authorUrl>www.idealextensions.com</authorUrl>
+  <copyright>Copyright (C), IdealExtensions.com. All Rights Reserved.	</copyright>
+  <license>license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html	</license>
+  <version>3.0</version>
+  <description>MOD_CE_LATEST_XML_DESCRIPTION</description>
+  <files folder="site">
+    <folder>assets</folder>
+    <folder>language</folder>
+    <folder>site</folder>
+    <folder>tmpl</folder>
+    <filename>helper.php</filename>
+    <filename>index.html</filename>
+    <filename module="mod_ce_latest">mod_ce_latest.php</filename>
+  </files>
+  <params/>
+  <config>
+    <fields name="params">
+      
+      
+      
+    <fieldset name="display" label="MOD_CE_LATEST_FIELD_GROUP_DISPLAY_LABEL" addfieldpath="/administrator/components/com_contactenhanced/models/fields">
+        
+        
+        
+        
+        
+        
+        	
+        
+		
+        	
+        
+        	
+        
+        
+        
+        
+        
+        
+      <field name="introtext" type="textarea" cols="45" rows="3" default="" label="MOD_CE_LATEST_INTROTEXT_LABEL" description="MOD_CE_LATEST_INTROTEXT_DESC" filter="safehtml"/><field name="posttext" type="textarea" cols="45" rows="3" default="" label="MOD_CE_LATEST_POSTTEXT_LABEL" description="MOD_CE_LATEST_POSTTEXT_DESC" filter="safehtml"/><field name="maxitemsTitle" type="title" default="10" label="MOD_CE_LATEST_FIELD_COUNT_LABEL" description="MOD_CE_LATEST_FIELD_COUNT_DESC"/><field name="maxitems" type="list" default="10" label="MOD_CE_LATEST_FIELD_COUNT_LABEL" description="MOD_CE_LATEST_FIELD_COUNT_DESC">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        <option value="0">JNONE</option><option value="1">J1</option><option value="2">J2</option><option value="3">J3</option><option value="4">J4</option><option value="5">J5</option><option value="6">J6</option><option value="7">J7</option><option value="8">J8</option><option value="9">J9</option><option value="10">J10</option><option value="15">J15</option><option value="20">J20</option><option value="25">J25</option><option value="30">J30</option><option value="50">J50</option><option value="75">J75</option><option value="100">J100</option><option value="150">J150</option><option value="200">J200</option><option value="250">J250</option><option value="300">J300</option></field><field name="show_totalTitle" type="title" default="0" label="MOD_CE_LATEST_FIELD_SHOW_TOTAL_LABEL" description="MOD_CE_LATEST_FIELD_SHOW_TOTAL_DESC"/><field name="show_total" type="switch" default="0" label="MOD_CE_LATEST_FIELD_SHOW_TOTAL_LABEL" description="MOD_CE_LATEST_FIELD_SHOW_TOTAL_DESC">
+          
+          
+        <option value="0">JNO</option><option value="enabled">JYES</option></field><field name="show_total-enabled-labelTitle" type="title" default="" label="MOD_CE_LATEST_FIELD_TOTAL_LBL_LABEL" description="MOD_CE_LATEST_FIELD_TOTAL_LBL_DESC"/><field name="show_total-enabled-label" type="text" default="" filter="safehtml" label="MOD_CE_LATEST_FIELD_TOTAL_LBL_LABEL" description="MOD_CE_LATEST_FIELD_TOTAL_LBL_DESC"/><field name="filteringspacer12" type="spacer" hr="true"/><field name="link_titles" type="switch" default="1" label="MOD_CE_LATEST_FIELD_LINKTITLES_LABEL" description="MOD_CE_LATEST_FIELD_LINKTITLES_DESC">
+          
+          
+        <option value="0">JNO</option><option value="customfield">MOD_CE_LATEST_OPT_CUSTOM_FIELD</option></field><field name="link_titles-customfield-id" type="modal_customfields" default="" label="MOD_CE_LATEST_FIELD_CUSTOM_FIELD_LABEL" description="MOD_CE_LATEST_FIELD_CUSTOM_FIELD_DESC"/><field name="show_date" type="radio" default="1" label="JDATE" description="MOD_CE_LATEST_FIELD_SHOWDATE_DESC">
+          
+          
+        <option value="1">JYES</option><option value="0">JNO</option></field></fieldset><fieldset name="filtering" label="MOD_CE_LATEST_FIELD_GROUP_FILTERING_LABEL">
+        
+        
+        
+        
+      <field name="category_filtering_type" type="radio" default="1" label="MOD_CE_LATEST_FIELD_CATFILTERINGTYPE_LABEL" description="MOD_CE_LATEST_FIELD_CATFILTERINGTYPE_DESC">
+          
+          
+        <option value="1">MOD_CE_LATEST_OPTION_INCLUSIVE_VALUE</option><option value="0">MOD_CE_LATEST_OPTION_EXCLUSIVE_VALUE</option></field><field name="catid" type="category" extension="com_contactenhanced" multiple="true" size="5" label="JCATEGORY" description="MOD_CE_LATEST_FIELD_CATEGORY_DESC">
+          
+        <option value="">JOPTION_ALL_CATEGORIES</option></field><field name="filteringspacer4" type="spacer" hr="true"/><field name="excluded_contacts" type="textarea" cols="10" rows="3" label="MOD_CE_LATEST_FIELD_EXCLUDEDARTICLES_LABEL" description="MOD_CE_LATEST_FIELD_EXCLUDEDARTICLES_DESC"/></fieldset><fieldset name="advanced">
+        
+        
+        
+        
+      <field name="layout" type="modulelayout" label="JFIELD_ALT_LAYOUT_LABEL" description="JFIELD_ALT_MODULE_LAYOUT_DESC"/><field name="moduleclass_sfx" type="text" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"/><field name="owncache" type="list" default="1" label="COM_MODULES_FIELD_CACHING_LABEL" description="COM_MODULES_FIELD_CACHING_DESC">
+          
+          
+        <option value="1">JGLOBAL_USE_GLOBAL</option><option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option></field><field name="cache_time" type="text" default="900" label="COM_MODULES_FIELD_CACHE_TIME_LABEL" description="COM_MODULES_FIELD_CACHE_TIME_DESC"/></fieldset></fields>
+  </config>
+</extension>

@@ -1,0 +1,10 @@
+.mod-ce-latest-time-ago{float:right;font-size:85%}
+.mod-ce-latest-title {}
+.mod-ce-latest-total{font-size:110%;margin-bottom:7px;}
+.mod-ce-latest-total span{font-weight:bold}
+.mod-ce-latest .ce-posttext{clear:both;padding-top:10px;}
+
+
+/*List styling */
+.mod-ce-latest ul li{list-style-type:none;clear:left}
+.mod-ce-latest ul{list-style-type:none;margin:0}

@@ -1,0 +1,7 @@
+.mod_ce_alphaindex{margin:0 0 20px 0;background:url(../images/alpha_index.png) 0 0 no-repeat;}
+.mod_ce_alphaindex-2{padding:0 10px 0 10px;background:url(../images/alpha_index.png) 100% -40px no-repeat}
+.mod_ce_alphaindex-3{height:35px;padding: 0px 0px 0px 5px;background: url(../images/alpha_index.png) 0 -80px repeat-x;overflow:hidden}
+.mod_ce_alphaindex a:link,.mod_ce_alphaindex a:visited{color:#646464;text-decoration:none}
+.mod_ce_alphaindex span{color:#C8C8C8}
+.mod_ce_alphaindex a,.mod_ce_alphaindex span{display:block;width:21px;height:35px;float:left;line-height:35px;text-align:center;text-transform:uppercase}
+.mod_ce_alphaindex a:hover{background: url(../images/alpha_index.png) 0 -121px no-repeat;color:#000;text-decoration:none}

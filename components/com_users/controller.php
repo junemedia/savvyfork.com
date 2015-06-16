@@ -1,0 +1,219 @@
+<?php
+/**
+ * @package     Joomla.Site
+ * @subpackage  com_users
+ *
+ * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
+defined('_JEXEC') or die;
+
+/**
+ * Base controller class for Users.
+ *
+ * @package     Joomla.Site
+ * @subpackage  com_users
+ * @since       1.5
+ */
+class UsersController extends JControllerLegacy
+{
+	/**
+	 * Method to display a view.
+	 *
+	 * @param   boolean			If true, the view output will be cached
+	 * @param   array  An array of safe url parameters and their variable types, for valid values see {@link JFilterInput::clean()}.
+	 *
+	 * @return  JController		This object to support chaining.
+	 * @since   1.5
+	 */
+	public function display($cachable = false, $urlparams = false)
+	{ 
+		// Get the document object.
+		$document	= JFactory::getDocument();
+
+		// Set the default view name and format from the Request.
+		$vName   = $this->input->getCmd('view', 'login');
+		$vFormat = $document->getType();
+		$lName   = $this->input->getCmd('layout', 'default');
+		
+		$userid = $this->input->getCmd('user_id', 0);
+
+		if ($view = $this->getView($vName, $vFormat))
+		{
+			// Do any specific processing by view.
+			switch ($vName)
+			{
+				//user/partner/partner list detail page template - edit by howe
+				case 'userdetail':
+				$view->userId = $userid;
+				// If the user is a guest, redirect to the login page.
+					//$user = JFactory::getUser();
+					/*if ($user->get('guest') == 1)
+					{
+						// Redirect to login page.
+						$this->setRedirect(JRoute::_('index.php?option=com_users&view=login', false));
+						return;
+					}*/
+					$model = $this->getModel($vName);
+					break; 
+					
+				case 'partner':
+				// If the user is a guest, redirect to the login page.
+				
+					//$user = JFactory::getUser();
+					$view->partnerid = $userid;
+
+					/*if ($user->get('guest') == 1)
+					{
+						// Redirect to login page.
+						$this->setRedirect(JRoute::_('index.php?option=com_users&view=login', false));
+						return;
+					}*/
+					$model = $this->getModel($vName);
+					break; 
+					
+				case 'partnerlist':
+				// If the user is a guest, redirect to the login page.
+					$user = JFactory::getUser();
+					/*if ($user->get('guest') == 1)
+					{
+						// Redirect to login page.
+						$this->setRedirect(JRoute::_('index.php?option=com_users&view=login', false));
+						return;
+					}*/
+					$model = $this->getModel($vName);
+					break; 
+				// end - user/partner/partner list detail page template - edit by howe
+				
+				case 'registration':
+					// If the user is already logged in, redirect to the profile page.
+					$user = JFactory::getUser();
+					if ($user->get('guest') != 1)
+					{
+						// Redirect to profile page.
+						$this->setRedirect(JRoute::_('index.php?option=com_users&view=profile', false));
+						return;
+					}
+
+					// Check if user registration is enabled
+					if (JComponentHelper::getParams('com_users')->get('allowUserRegistration') == 0)
+					{
+						// Registration is disabled - Redirect to login page.
+						$this->setRedirect(JRoute::_('index.php?option=com_users&view=login', false));
+						return;
+					}
+
+					// The user is a guest, load the registration model and show the registration page.
+					$model = $this->getModel('Registration');
+					break;
+					
+				case 'partnerregistration':
+					// If the user is already logged in, redirect to the profile page.
+					$user = JFactory::getUser();
+					if ($user->get('guest') != 1)
+					{
+						// Redirect to profile page.
+						$this->setRedirect(JRoute::_('index.php?option=com_users&view=profile', false));
+						return;
+					}
+
+					// Check if user registration is enabled
+					if (JComponentHelper::getParams('com_users')->get('allowUserRegistration') == 0)
+					{
+						// Registration is disabled - Redirect to login page.
+						$this->setRedirect(JRoute::_('index.php?option=com_users&view=login', false));
+						return;
+					}
+
+					// The user is a guest, load the registration model and show the registration page.
+					$model = $this->getModel('PartnerRegistration');
+					break;
+
+				// Handle view specific models.
+				case 'profile':
+
+					// If the user is a guest, redirect to the login page.
+					$user = JFactory::getUser();
+					if ($user->get('guest') == 1)
+					{
+						// Redirect to login page.
+						$this->setRedirect(JRoute::_('index.php?option=com_users&view=login', false));
+						return;
+					}
+					$model = $this->getModel($vName);
+					break;
+
+				// Handle the default views.
+				case 'login':
+					$model = $this->getModel($vName);
+					break;
+
+				case 'reset':
+					// If the user is already logged in, redirect to the profile page.
+					$user = JFactory::getUser();
+					if ($user->get('guest') != 1)
+					{
+						// Redirect to profile page.
+						$this->setRedirect(JRoute::_('index.php?option=com_users&view=profile', false));
+						return;
+					}
+
+					$model = $this->getModel($vName);
+					break;
+
+				case 'remind':
+					// If the user is already logged in, redirect to the profile page.
+					$user = JFactory::getUser();
+					if ($user->get('guest') != 1)
+					{
+						// Redirect to profile page.
+						$this->setRedirect(JRoute::_('index.php?option=com_users&view=profile', false));
+						return;
+					}
+
+					$model = $this->getModel($vName);
+					break;
+
+				default:
+					$model = $this->getModel('Login');
+					break;
+			}
+
+			// Push the model into the view (as default).
+			$view->setModel($model, true);
+			$view->setLayout($lName);
+			
+			// Push document object into the view.
+			$view->document = $document;
+
+			$view->display();
+		}
+	}
+	
+	public function logActivity()
+	{
+		$userId = JRequest::getVar('user',0);
+		$activity = JRequest::getVar('type');
+		$recipeId = JRequest::getVar('recipe',0);
+		$ipAdress = $_SERVER['REMOTE_ADDR'];
+		
+		$db = JFactory::getDBO();
+		$sql = "SELECT id FROM #__activity_type WHERE activity = '".$activity."'";
+		$db->setQuery($sql);
+		$typeId = $db->loadResult();
+	
+		$sql = "INSERT INTO #__user_activity SET user_id=".(int)$userId.", type_id = '".(int)$typeId."', recipe_id = ".(int)$recipeId.", sharedate = now(), ipaddress = '".$ipAdress."'";
+		$db->setQuery($sql);
+		$db->execute();
+	}
+    
+    public function partner_recipes_list(){
+        // Display the import
+        $input     = JFactory::getApplication()->input;
+        $input->set( 'view', 'profile' );
+        $input->set( 'layout', 'partner_recipes_list'  );
+        
+        parent::display();
+    }
+}

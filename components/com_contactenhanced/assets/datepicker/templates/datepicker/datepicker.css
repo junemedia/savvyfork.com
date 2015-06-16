@@ -1,0 +1,45 @@
+.datepicker{background:#fff;border:2px solid #1C3262;font-size:11px;height:221px;line-height:normal;padding:3px;position:absolute;width:194px;z-index:3003}
+.datepicker.column_2{width:393px}
+.datepicker.column_3{width:592px}
+.datepicker.column_4{width:791px}
+.datepicker.column_5{width:990px}
+.datepicker .header{background:#1C3262;height:21px;margin-bottom:3px;overflow:hidden;padding-top:4px;position:relative}
+.datepicker .header .title{color:#fff;font-weight:700;padding-top:1px;position:absolute;text-align:center;width:99999px}
+.datepicker .header .next,.datepicker .header .previous,.datepicker .header .closeButton{background:#fff;color:#666;cursor:pointer;height:15px;position:absolute;text-align:center;top:5px;width:15px}
+.datepicker .header .previous{left:5px}
+.datepicker .header .next{right:28px}
+.datepicker .header .closeButton{right:5px}
+.datepicker .body{height:193px;left:0;overflow:hidden;position:relative;top:0}
+.datepicker .body .column{float:left;margin-left:5px;min-height:193px;width:194px}
+.datepicker .titleText .column{float:left;margin-left:5px;width:194px}
+.datepicker.footer{height:280px}
+.datepicker .footer{height:26px;margin-top:3px;padding:15px 5px}
+.datepicker .time{background:#eee;height:100%;width:100%}
+.datepicker .time .hour,.datepicker .time .separator,.datepicker .time .minutes{background:#fff;border:1px solid #ccc;font-size:32px;padding:2px;position:absolute;text-align:center;top:50px;width:50px}
+.datepicker .time .hour{left:30px}
+.datepicker .time .separator{background:transparent;border:0;left:91px;width:10px}
+.datepicker .time .minutes{left:110px}
+.datepicker .time .ok{font-size:20px;left:30px;position:absolute;top:105px;width:136px}
+.datepicker .days .day{background:#ccc;cursor:pointer;float:left;font-size:11px;height:21px;margin:0 3px 3px 0;overflow:hidden;padding-top:4px;text-align:center;width:25px}
+.datepicker .days .day6{margin-right:0}
+.datepicker .days .title{background:#5D6E95;color:#fff;cursor:default;font-weight:700}
+.datepicker .days .otherMonth{background:#eee;color:#aaa}
+.datepicker .months .month{background:#eee;cursor:pointer;float:left;height:31px;margin:0 3px 3px 0;overflow:hidden;padding-top:15px;text-align:center;width:62px}
+.datepicker .months .month3,.datepicker .months .month6,.datepicker .months .month9,.datepicker .months .month12{margin-right:0;width:64px}
+.datepicker .years .year{background:#eee;cursor:pointer;float:left;height:25px;margin:0 3px 3px 0;overflow:hidden;padding-top:11px;text-align:center;width:46px}
+.datepicker .years .year3,.datepicker .years .year7,.datepicker .years .year11,.datepicker .years .year15,.datepicker .years .year19{margin-right:0;width:47px}
+.datepicker .years .year16,.datepicker .years .year17,.datepicker .years .year18,.datepicker .years .year19{height:26px;margin-bottom:0}
+.datepicker .selected{background:#8C929F!important;color:#fff!important}
+.datepicker .days .otherMonth.selected{background:#bbbfc8!important}
+.datepicker .unavailable,.datepicker .body .days .week .day.unavailable:hover{background:#edd!important;color:#b88!important;cursor:default!important}
+.datepicker .days .week .day:hover,.datepicker .months .month:hover,.datepicker .years .year:hover{background:#5D6E95!important;color:#fff!important}
+.datepicker .days.weeknumbers .day{width:22px}
+.datepicker .days.weeknumbers .day.weeknumber,.datepicker .days.weeknumbers .day.weeknumber:hover{background:#EEE!important;color:#AAA!important;width:16px!important}
+.datepicker table,.datepicker th,.datepicker td{border:0!important;border-collapse:inherit;border-spacing:0}
+.datepicker th,.datepicker td{padding:0}
+.footer input{width:31%}
+input.cf-input-date{cursor:pointer}
+.datepicker .body .column.column_1,.datepicker .titleText .column.column_1{margin-left:0}
+.datepicker .days .week5 .day,.datepicker .months .month10,.datepicker .months .month11,.datepicker .months .month12{margin-bottom:0}
+.cf-type-date input{background-image:url("date-range.png")!important;background-position:98% 2px!important;background-repeat: no-repeat !important}
+.cf-type-date input.required{background-image:url("date-range-required.png")!important;background-position:right top!important}

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="package" version="3.0">
+  <packagename>contactenhanced</packagename>
+  <name>ContactEnhanced</name>
+  <creationDate>29-Jul-2013</creationDate>
+  <author>Douglas Machado</author>
+  <authorEmail>support@idealextensions.com</authorEmail>
+  <authorUrl>idealextensions.com</authorUrl>
+  <copyright>Copyright (C) 2006 - 2013 Ideal Custom Software Development</copyright>
+  <license>GNU General Public License version 2 or later; see 		LICENSE.txt</license>
+  <version>3.0.10</version>
+  <description>A package containing various extension types (Component, Plugins, Modules) for Contact Enhanced</description>
+  <files>
+    <file type="plugin" id="plg_contactenhanced_customcode">plg_contactenhanced_customcode_3.0.0.zip</file>
+    <file type="plugin" id="plg_system_isekeywords">plg_system_isekeywords_3.0.0.zip</file>
+    <file type="plugin" id="plg_system_cefeedback">plg_system_cefeedback_3.0.8.zip</file>
+    <file type="plugin" id="plg_user_ce_contactcreator">plg_user_ce_contactcreator_3.0.0.zip</file>
+    <file type="plugin" id="plg_system_mailto2ce">plg_system_mailto2ce_3.0.1.zip</file>
+    <file type="module" id="mod_site_ce_alphaindex">mod_site_ce_alphaindex_3.0.zip</file>
+    <file type="module" id="mod_site_ce_birthday">mod_site_ce_birthday_3.0.zip</file>
+    <file type="module" id="mod_site_ce_latest">mod_site_ce_latest_3.0.zip</file>
+    <file type="module" id="mod_site_ce_contactslider">mod_site_ce_contactslider_3.0.0.zip</file>
+    <file type="module" id="mod_site_ce_search">mod_site_ce_search_3.0.8.zip</file>
+    <file type="module" id="mod_site_ce_form">mod_site_ce_form_3.0.8.zip</file>
+    <file type="module" id="mod_site_ce_category">mod_site_ce_category_3.0.5.zip</file>
+    <file type="plugin" id="plg_search_contactenhanced">plg_search_contactenhanced_3.0.5.zip</file>
+    <file type="plugin" id="plg_editors-xtd_contactenhanced">plg_editors-xtd_contactenhanced_3.0.1.zip</file>
+    <file type="plugin" id="plg_content_contactenhanced">plg_content_contactenhanced_3.1.zip</file>
+    <file type="module" id="mod_admin_admin_ce_statistics">mod_admin_admin_ce_statistics_3.0.zip</file>
+    <file type="module" id="mod_admin_admin_ce_latest">mod_admin_admin_ce_latest_3.0.zip</file>
+    <file type="component" id="com_contactenhanced">com_contactenhanced_3.0.10.zip</file>
+  </files>
+  <params/>
+  <config/>
+</extension>

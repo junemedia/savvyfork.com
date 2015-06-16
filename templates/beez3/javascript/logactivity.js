@@ -1,0 +1,1 @@
+function logActivity(userId,recipeId,socialType){var url="index.php?option=com_users&task=logActivity";jQuery.ajax({type:"POST",url:url,data:{"user":userId,"recipe":recipeId,"type":socialType},dataType:"json",success:function(response){}})}

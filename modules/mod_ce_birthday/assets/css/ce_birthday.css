@@ -1,0 +1,16 @@
+.mod-ce-birthday-img {
+  border: 1px solid;
+  float: left;
+  margin: 0 3px 0 0;
+  padding: 2px;
+}
+.mod-ce-birthday-title {
+  font-size: 110%;
+  font-weight: bold;
+}
+.ce-posttext{clear:both;padding-top:10px;}
+
+
+/*List styling */
+.ce-birthday ul li{list-style-type:none;clear:left}
+.ce-birthday ul{list-style-type:none;margin:0}

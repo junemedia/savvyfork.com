@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.0" method="upgrade" client="administrator">
+  <name>Contact Enhanced Latest Submitted Forms</name>
+  <creationDate>29-Jul-2013</creationDate>
+  <author>IdealExtensions.com</author>
+  <authorEmail>admin@idealextensions.com</authorEmail>
+  <authorUrl>www.idealextensions.com</authorUrl>
+  <copyright>Copyright (C), IdealExtensions.com. All Rights Reserved.	</copyright>
+  <license>license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html	</license>
+  <version>3.0</version>
+  <description>MOD_CE_LATEST_XML_DESCRIPTION</description>
+  <files folder="admin">
+    <folder>assets</folder>
+    <folder>language</folder>
+    <folder>tmpl</folder>
+    <filename>helper.php</filename>
+    <filename>index.html</filename>
+    <filename module="mod_admin_ce_latest">mod_admin_ce_latest.php</filename>
+  </files>
+  <params/>
+  <config>
+    <fields name="params">
+      
+      
+    <fieldset name="basic" addfieldpath="/administrator/components/com_contactenhanced/models/fields">
+        
+        
+      <field name="maxitemsTitle" type="title" label="MOD_CE_LATEST_FIELD_COUNT_LABEL" description="MOD_CE_LATEST_FIELD_COUNT_DESC"/><field name="maxitems" type="list" default="7" label="MOD_CE_LATEST_FIELD_COUNT_LABEL" description="MOD_CE_LATEST_FIELD_COUNT_DESC">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        <option value="0">JNONE</option><option value="1">J1</option><option value="2">J2</option><option value="3">J3</option><option value="4">J4</option><option value="5">J5</option><option value="6">J6</option><option value="7">J7</option><option value="8">J8</option><option value="9">J9</option><option value="10">J10</option><option value="15">J15</option><option value="20">J20</option><option value="25">J25</option><option value="30">J30</option><option value="50">J50</option><option value="75">J75</option><option value="100">J100</option><option value="150">J150</option><option value="200">J200</option><option value="250">J250</option><option value="300">J300</option></field></fieldset><fieldset name="advanced">
+        
+        
+        
+        
+      <field name="layout" type="modulelayout" label="JFIELD_ALT_LAYOUT_LABEL" description="JFIELD_ALT_MODULE_LAYOUT_DESC"/><field name="moduleclass_sfx" type="text" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"/><field name="cache" type="list" default="0" label="COM_MODULES_FIELD_CACHING_LABEL" description="COM_MODULES_FIELD_CACHING_DESC">
+          
+        <option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option></field><field name="automatic_title" type="radio" default="0" label="COM_MODULES_FIELD_AUTOMATIC_TITLE_LABEL" description="COM_MODULES_FIELD_AUTOMATIC_TITLE_DESC">
+          
+          
+        <option value="0">JNO</option><option value="1">JYES</option></field></fieldset></fields>
+  </config>
+</extension>

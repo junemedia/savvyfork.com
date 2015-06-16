@@ -1,0 +1,37 @@
+.jqui{background:url(frame.png) no-repeat;color:#333;font-family:"Trebuchet MS", Tahoma, Verdana, Arial, sans-serif;font-size:10px;height:158px;line-height:normal;padding:4px;position:absolute;width:185px}
+.jqui .header{height:15px;margin-bottom:5px;padding-top:1px;position:relative}
+.jqui .header .title{margin:3px 18px 0;text-align:center}
+.jqui .header .titleText{color:#fff;font-size:11px}
+.jqui .header .previous,.jqui .header .next,.jqui .header .closeButton{background-image:url(arrows.png);background-position:left top;background-repeat:no-repeat;cursor:pointer;height:16px;overflow:hidden;position:absolute;text-indent:-40px;top:4px;width:16px}
+.jqui .header .previous{left:4px}
+.jqui .header .previous:hover{background-position:left bottom}
+.jqui .header .next{background-position:-17px top;right:4px}
+.jqui .header .next:hover{background-position:-17px bottom}
+.jqui .header .closeButton{background-position:right top;display:none;right:0;top:0}
+.jqui .header .closeButton:hover{background-position:right bottom}
+.jqui .body{height:131px;left:2px;overflow:hidden;position:relative;top:6px;width:185px}
+.jqui .time{height:100%;position:relative;width:100%}
+.jqui .time .hour,.jqui .time .separator,.jqui .time .minutes{background:#fff;border:1px solid #aaa;color:#333;font-size:32px;padding:2px;position:absolute;text-align:center;top:18px;width:50px}
+.jqui .time .hour{left:23px}
+.jqui .time .separator{background:transparent;border:0;left:84px;width:10px}
+.jqui .time .minutes{left:103px}
+.jqui .time .ok{font-size:20px;height:32px;left:23px;position:absolute;top:80px;width:136px}
+.jqui .days .day{border:1px solid #aaa;float:left;font-size:10px;height:13px;margin:0 2px 2px 0;overflow:hidden;padding-right:3px;padding-top:1px;text-align:right;width:19px}
+.jqui .days .titles{margin-bottom:1px}
+.jqui .days .titles .title{border:1px solid transparent;height:16px;padding-right:0;padding-top:2px;text-align:center;width:22px}
+.jqui .days .week .day{background:#fcfcfc;color:#1C94C4;cursor:pointer}
+.jqui .days .week .otherMonth{background:#f2f2f2;border:1px solid #aaa;color:#94B2BE}
+.jqui .months .month{background:#fcfcfc;border:1px solid #aaa;cursor:pointer;float:left;height:22px;margin:0 2px 2px 0;overflow:hidden;padding-top:7px;text-align:center;width:57px}
+.jqui .years .year{background:#fcfcfc;border:1px solid #aaa;cursor:pointer;float:left;height:22px;margin:0 2px 2px 0;overflow:hidden;padding-top:7px;text-align:center;width:32px}
+.jqui .years .year4,.jqui .years .year9,.jqui .years .year14,.jqui .years .year19{margin-right:0;width:34px}
+.jqui .unavailable{background:#f0f0f0!important;border:1px solid #ccc!important;color:#ccc!important;cursor:default!important}
+.jqui table,.jqui th,.jqui td{border:0!important;border-collapse:inherit;border-spacing:0}
+.jqui th,.jqui td{padding:0}
+.footer input{width:31%}
+input.cf-input-date{cursor:pointer}
+.jqui .days .day6,.jqui .months .month3,.jqui .months .month6,.jqui .months .month9,.jqui .months .month12{margin-right:0}
+.jqui .days .week5 .day,.jqui .months .month10,.jqui .months .month11,.jqui .months .month12,.jqui .years .year15,.jqui .years .year16,.jqui .years .year17,.jqui .years .year18,.jqui .years .year19{margin-bottom:0}
+.jqui .days .week .day:hover,.jqui .months .month:hover,.jqui .years .year:hover{background:#fdf5ce;border:1px solid #fbcb09;color:#c77405}
+.jqui .days .week .selected,.jqui .months .selected,.jqui .years .selected{background:#fff;border:1px solid #fbcb09;color:#c77405}
+.cf-type-date input{background-image:url("../datepicker/date-range.png")!important;background-position:98% 2px!important;background-repeat: no-repeat !important}
+.cf-type-date input.required{background-image:url("../datepicker/date-range-required.png")!important;background-position:right top!important}

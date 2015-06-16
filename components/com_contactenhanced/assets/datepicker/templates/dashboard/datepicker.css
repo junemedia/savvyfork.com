@@ -1,0 +1,32 @@
+.dashboard{background:url(frame.png) no-repeat;color:#fff;font-family:"Lucida Grande", LucidaGrande, "Lucida Sans", Geneva, Verdana, sans-serif;font-size:10px;height:135px;line-height:normal;padding:14px;position:absolute;width:172px}
+.dashboard .header{height:15px;margin-bottom:5px;padding-top:1px;position:relative}
+.dashboard .header .title{margin:2px 18px 0;text-align:center}
+.dashboard .header .previous,.dashboard .header .next,.dashboard .header .closeButton{background-image:url(buttons.png);background-position:left top;background-repeat:no-repeat;cursor:pointer;height:12px;overflow:hidden;position:absolute;text-indent:-40px;top:2px;width:12px}
+.dashboard .header .previous{left:4px}
+.dashboard .header .previous:hover{background-position:left bottom}
+.dashboard .header .next{background-position:-13px top;right:4px}
+.dashboard .header .next:hover{background-position:-13px bottom}
+.dashboard .header .closeButton{background-position:right top;display:none;right:0;top:0}
+.dashboard .header .closeButton:hover{background-position:right bottom}
+.dashboard .body{height:112px;left:2px;overflow:hidden;position:relative;top:0;width:168px}
+.dashboard .time{height:100%;position:relative;width:100%}
+.dashboard .time .hour,.dashboard .time .separator,.dashboard .time .minutes{background:#333;border:0;color:#fff;font-size:32px;padding:2px;position:absolute;text-align:center;top:10px;width:50px}
+.dashboard .time .hour{left:15px}
+.dashboard .time .separator{background:transparent;left:76px;width:10px}
+.dashboard .time .minutes{left:95px}
+.dashboard .time .ok{font-size:20px;height:32px;left:15px;position:absolute;top:65px;width:136px}
+.dashboard .days .day{float:left;font-size:10px;font-weight:400;height:14px;margin:0 1px 1px 0;overflow:hidden;padding-top:1px;text-align:center;width:23px}
+.dashboard .days .titles{color:#aaa;height:15px;margin-bottom:2px;text-transform:uppercase}
+.dashboard .days .otherMonth{color:#444}
+.dashboard .months .month{cursor:pointer;float:left;height:21px;margin:0 1px 1px 0;overflow:hidden;padding-top:6px;text-align:center;width:55px}
+.dashboard .years .year{cursor:pointer;float:left;height:21px;margin:0 1px 1px 0;overflow:hidden;padding-top:6px;text-align:center;width:32px}
+.dashboard .unavailable{color:#533!important;cursor:default!important;text-decoration:line-through}
+.dashboard table,.dashboard th,.dashboard td{border:0!important;border-collapse:inherit;border-spacing:0}
+.dashboard th,.dashboard td{padding:0}
+.footer input{width:31%}
+.dashboard .header .titleText,.dashboard .days .week .day:hover,.dashboard .days .selected,.dashboard .months .month:hover,.dashboard .months .selected,.dashboard .years .year:hover,.dashboard .years .selected{color:#cf0}
+.dashboard .days .day6,.dashboard .months .month3,.dashboard .months .month6,.dashboard .months .month9,.dashboard .months .month12,.dashboard .years .year4,.dashboard .years .year9,.dashboard .years .year14,.dashboard .years .year19{margin-right:0}
+.dashboard .days .week5 .day,.dashboard .months .month10,.dashboard .months .month11,.dashboard .months .month12,.dashboard .years .year15,.dashboard .years .year16,.dashboard .years .year17,.dashboard .years .year18,.dashboard .years .year19{margin-bottom:0}
+.dashboard .days .week .day,input.cf-input-date{cursor:pointer}
+.cf-type-date input{background-image:url("../datepicker/date-range.png")!important;background-position:98% 2px!important;background-repeat: no-repeat !important}
+.cf-type-date input.required{background-image:url("../datepicker/date-range-required.png")!important;background-position:right top!important}

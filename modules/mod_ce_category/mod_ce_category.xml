@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.0" method="upgrade">
+  <name>mod_ce_category</name>
+  <creationDate>29-Jul-2013</creationDate>
+  <author>Douglas Machado </author>
+  <authorEmail>admin@fok.com.br</authorEmail>
+  <authorUrl>www.idealextensions.com</authorUrl>
+  <copyright>Copyright (C) 2006 - 2011 iDeal Extensions for Joomla!. 		All rights reserved.</copyright>
+  <license>GNU General Public License version 2 or later; see 		LICENSE.txt</license>
+  <version>3.0.5</version>
+  <description>MOD_CE_CATEGORY_XML_DESCRIPTION</description>
+  <files folder="site">
+    <folder>language</folder>
+    <folder>tmpl</folder>
+    <filename>helper.php</filename>
+    <filename>index.html</filename>
+    <filename module="mod_ce_category">mod_ce_category.php</filename>
+  </files>
+  <params/>
+  <config>
+    <fields name="params" addfieldpath="/administrator/components/com_contactenhanced/models/fields">
+      
+      
+      
+      
+      
+      
+      
+    <fieldset name="basic">
+        
+      <field name="mode" type="radio" default="normal" label="MOD_CE_CATEGORY_FIELD_MODE_LABEL" description="MOD_CE_CATEGORY_FIELD_MODE_DESC">
+          
+          
+        <option value="normal">MOD_CE_CATEGORY_OPTION_NORMAL_VALUE</option><option value="dynamic">MOD_CE_CATEGORY_OPTION_DYNAMIC_VALUE</option></field></fieldset><fieldset name="dynamic" label="MOD_CE_CATEGORY_FIELD_GROUP_DYNAMIC_LABEL">
+        
+      <field name="show_on_contact_page" type="radio" default="1" label="MOD_CE_CATEGORY_FIELD_SHOWONARTICLEPAGE_LABEL" description="MOD_CE_CATEGORY_FIELD_SHOWONARTICLEPAGE_DESC">
+          
+          
+        <option value="1">JSHOW</option><option value="0">JHIDE</option></field></fieldset><fieldset name="filtering" label="MOD_CE_CATEGORY_FIELD_GROUP_FILTERING_LABEL">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      <field name="count" type="text" default="0" label="MOD_CE_CATEGORY_FIELD_COUNT_LABEL" description="MOD_CE_CATEGORY_FIELD_COUNT_DESC"/><field name="filteringspacer1" type="spacer" hr="true"/><field name="category_filtering_type" type="radio" default="1" label="MOD_CE_CATEGORY_FIELD_CATFILTERINGTYPE_LABEL" description="MOD_CE_CATEGORY_FIELD_CATFILTERINGTYPE_DESC">
+          
+          
+        <option value="1">MOD_CE_CATEGORY_OPTION_INCLUSIVE_VALUE</option><option value="0">MOD_CE_CATEGORY_OPTION_EXCLUSIVE_VALUE</option></field><field name="catid" type="category" extension="com_contactenhanced" multiple="true" size="5" label="JCATEGORY" description="MOD_CE_CATEGORY_FIELD_CATEGORY_DESC">
+          
+        <option value="">JOPTION_ALL_CATEGORIES</option></field><field name="show_child_category_contacts" type="radio" default="0" label="MOD_CE_CATEGORY_FIELD_SHOWCHILDCATEGORYARTICLES_LABEL" description="MOD_CE_CATEGORY_FIELD_SHOWCHILDCATEGORYARTICLES_DESC">
+          
+          
+        <option value="1">MOD_CE_CATEGORY_OPTION_INCLUDE_VALUE</option><option value="0">MOD_CE_CATEGORY_OPTION_EXCLUDE_VALUE</option></field><field name="levels" type="text" default="1" label="MOD_CE_CATEGORY_FIELD_CATDEPTH_LABEL" description="MOD_CE_CATEGORY_FIELD_CATDEPTH_DESC"/><field name="filteringspacer2" type="spacer" hr="true"/><field name="author_filtering_type" type="radio" default="1" label="MOD_CE_CATEGORY_FIELD_AUTHORFILTERING_LABEL" description="MOD_CE_CATEGORY_FIELD_AUTHORFILTERING_DESC">
+          
+          
+        <option value="1">MOD_CE_CATEGORY_OPTION_INCLUSIVE_VALUE</option><option value="0">MOD_CE_CATEGORY_OPTION_EXCLUSIVE_VALUE</option></field><field name="created_by" type="sql" multiple="true" size="5" label="MOD_CE_CATEGORY_FIELD_AUTHOR_LABEL" description="MOD_CE_CATEGORY_FIELD_AUTHOR_DESC" query="select id, name, username from #__users where id IN (select distinct(created_by) from #__ce_details) order by name ASC" key_field="id" value_field="name">
+          
+        <option value="">JOPTION_SELECT_AUTHORS</option></field><field name="filteringspacer4" type="spacer" hr="true"/><field name="excluded_contacts" type="textarea" cols="10" rows="3" label="MOD_CE_CATEGORY_FIELD_EXCLUDEDARTICLES_LABEL" description="MOD_CE_CATEGORY_FIELD_EXCLUDEDARTICLES_DESC"/><field name="filteringspacer5" type="spacer" hr="true"/><field name="filteringspacer6" type="spacer" hr="true"/><field name="date_filtering" type="radio" default="off" label="MOD_CE_CATEGORY_FIELD_DATEFILTERING_LABEL" description="MOD_CE_CATEGORY_FIELD_DATEFILTERING_DESC">
+          
+          
+          
+        <option value="off">MOD_CE_CATEGORY_OPTION_OFF_VALUE</option><option value="range">MOD_CE_CATEGORY_OPTION_DATERANGE_VALUE</option><option value="relative">MOD_CE_CATEGORY_OPTION_RELATIVEDAY_VALUE</option></field><field name="date_field" type="list" default="a.created" label="MOD_CE_CATEGORY_FIELD_DATERANGEFIELD_LABEL" description="MOD_CE_CATEGORY_FIELD_DATERANGEFIELD_DESC">
+          
+          
+          
+        <option value="a.created">MOD_CE_CATEGORY_OPTION_CREATED_VALUE</option><option value="a.modified">MOD_CE_CATEGORY_OPTION_MODIFIED_VALUE</option><option value="a.publish_up">MOD_CE_CATEGORY_OPTION_STARTPUBLISHING_VALUE</option></field><field name="start_date_range" type="calendar" format="%Y-%m-%d %H:%M:%S" label="MOD_CE_CATEGORY_FIELD_STARTDATE_LABEL" description="MOD_CE_CATEGORY_FIELD_STARTDATE_DESC" size="22" filter="user_utc"/><field name="end_date_range" type="calendar" format="%Y-%m-%d %H:%M:%S" label="MOD_CE_CATEGORY_FIELD_ENDDATE_LABEL" description="MOD_CE_CATEGORY_FIELD_ENDDATE_DESC" size="22" filter="user_utc"/><field name="relative_date" type="text" default="30" label="MOD_CE_CATEGORY_FIELD_RELATIVEDATE_LABEL" description="MOD_CE_CATEGORY_FIELD_RELATIVEDATE_DESC"/></fieldset><fieldset name="ordering" label="MOD_CE_CATEGORY_FIELD_GROUP_ORDERING_LABEL">
+        
+        
+      <field name="contact_ordering" type="list" default="a.name" label="MOD_CE_CATEGORY_FIELD_CONTACTORDERING_LABEL" description="MOD_CE_CATEGORY_FIELD_CONTACTORDERING_DESC">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        <option value="a.ordering">MOD_CE_CATEGORY_OPTION_ORDERING_VALUE</option><option value="a.name">JGLOBAL_TITLE</option><option value="a.id">MOD_CE_CATEGORY_OPTION_ID_VALUE</option><option value="a.alias">JFIELD_ALIAS_LABEL</option><option value="a.created">MOD_CE_CATEGORY_OPTION_CREATED_VALUE</option><option value="modified">MOD_CE_CATEGORY_OPTION_MODIFIED_VALUE</option><option value="publish_up">MOD_CE_CATEGORY_OPTION_STARTPUBLISHING_VALUE</option><option value="a.publish_down">MOD_CE_CATEGORY_OPTION_FINISHPUBLISHING_VALUE</option><option value="RAND()">MOD_CE_CATEGORY_OPTION_RANDOM_VALUE</option></field><field name="contact_ordering_direction" type="list" default="ASC" label="MOD_CE_CATEGORY_FIELD_CONTACTORDERINGDIR_LABEL" description="MOD_CE_CATEGORY_FIELD_CONTACTORDERINGDIR_DESC">
+          
+          
+        <option value="DESC">MOD_CE_CATEGORY_OPTION_DESCENDING_VALUE</option><option value="ASC">MOD_CE_CATEGORY_OPTION_ASCENDING_VALUE</option></field></fieldset><fieldset name="grouping" label="MOD_CE_CATEGORY_FIELD_GROUP_GROUPING_LABEL">
+        
+        
+        
+      <field name="contact_grouping" type="list" default="none" label="MOD_CE_CATEGORY_FIELD_CONTACTGROUPING_LABEL" description="MOD_CE_CATEGORY_FIELD_CONTACTGROUPING_DESC">
+          
+          
+          
+          
+          
+        <option value="none">JNONE</option><option value="year">MOD_CE_CATEGORY_OPTION_YEAR_VALUE</option><option value="month_year">MOD_CE_CATEGORY_OPTION_MONTHYEAR_VALUE</option><option value="author">JAUTHOR</option><option value="category_title">JCATEGORY</option></field><field name="contact_grouping_direction" type="list" default="ksort" label="MOD_CE_CATEGORY_FIELD_CONTACTGROUPINGDIR_LABEL" description="MOD_CE_CATEGORY_FIELD_CONTACTGROUPINGDIR_DESC">
+          
+          
+        <option value="krsort">MOD_CE_CATEGORY_OPTION_DESCENDING_VALUE</option><option value="ksort">MOD_CE_CATEGORY_OPTION_ASCENDING_VALUE</option></field><field name="month_year_format" type="text" default="F Y" label="MOD_CE_CATEGORY_FIELD_MONTHYEARFORMAT_LABEL" description="MOD_CE_CATEGORY_FIELD_MONTHYEARFORMAT_DESC"/></fieldset><fieldset name="display" label="MOD_CE_CATEGORY_FIELD_GROUP_DISPLAY_LABEL">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      <field name="item_heading" type="list" default="4" label="MOD_CE_CATEGORY_TITLE_HEADING" description="MOD_CE_CATEGORY_TITLE_HEADING_DESCRIPTION">
+          
+          
+          
+          
+          
+          
+        <option value="1">JH1</option><option value="2">JH2</option><option value="3">JH3</option><option value="4">JH4</option><option value="5">JH5</option><option value="6">JH6</option></field><field name="contact_icons" type="list" default="" label="MOD_CE_CATEGORY_FIELD_ICONS_SETTINGS_LABEL" description="MOD_CE_CATEGORY_FIELD_ICONS_SETTINGS_DESC">
+          
+          
+          
+          
+        <option value="">JGLOBAL_USE_GLOBAL</option><option value="2">JNONE</option><option value="1">MOD_CE_CATEGORY_OPTION_TEXT</option><option value="0">MOD_CE_CATEGORY_OPTION_ICONS</option></field><field name="link_titles" type="radio" default="1" label="MOD_CE_CATEGORY_FIELD_LINKTITLES_LABEL" description="MOD_CE_CATEGORY_FIELD_LINKTITLES_DESC">
+          
+          
+        <option value="1">JYES</option><option value="0">JNO</option></field><field name="show_date" type="radio" default="0" label="JDATE" description="MOD_CE_CATEGORY_FIELD_SHOWDATE_DESC">
+          
+          
+        <option value="1">JSHOW</option><option value="0">JHIDE</option></field><field name="show_date_field" type="list" default="created" label="MOD_CE_CATEGORY_FIELD_DATEFIELD_LABEL" description="MOD_CE_CATEGORY_FIELD_DATEFIELD_DESC">
+          
+          
+          
+        <option value="created">MOD_CE_CATEGORY_OPTION_CREATED_VALUE</option><option value="modified">MOD_CE_CATEGORY_OPTION_MODIFIED_VALUE</option><option value="publish_up">MOD_CE_CATEGORY_OPTION_STARTPUBLISHING_VALUE</option></field><field name="show_date_format" type="text" default="Y-m-d H:i:s" label="MOD_CE_CATEGORY_FIELD_DATEFIELDFORMAT_LABEL" description="MOD_CE_CATEGORY_FIELD_DATEFIELDFORMAT_DESC"/><field name="show_category" type="radio" default="0" label="JCATEGORY" description="MOD_CE_CATEGORY_FIELD_SHOWCATEGORY_DESC">
+          
+          
+        <option value="1">JSHOW</option><option value="0">JHIDE</option></field><field name="show_author" type="radio" default="0" label="JAUTHOR" description="MOD_CE_CATEGORY_FIELD_SHOWAUTHOR_DESC">
+          
+          
+        <option value="1">JSHOW</option><option value="0">JHIDE</option></field><field name="show_position" type="radio" default="0" label="MOD_CE_CATEGORY_FIELD_PARAMS_CONTACT_POSITION_LABEL" description="MOD_CE_CATEGORY_FIELD_PARAMS_CONTACT_POSITION_DESC">
+          
+          
+        <option value="0">JHIDE</option><option value="1">JSHOW</option></field><field name="show_email" type="radio" default="0" label="MOD_CE_CATEGORY_FIELD_PARAMS_CONTACT_E_MAIL_LABEL" description="MOD_CE_CATEGORY_FIELD_PARAMS_CONTACT_E_MAIL_DESC">
+          
+          
+        <option value="0">JHIDE</option><option value="1">JSHOW</option></field><field name="show_street_address" type="radio" default="0" label="MOD_CE_CATEGORY_FIELD_PARAMS_STREET_ADDRESS_LABEL" description="MOD_CE_CATEGORY_FIELD_PARAMS_STREET_ADDRESS_DESC">
+          
+          
+        <option value="0">JHIDE</option><option value="1">JSHOW</option></field><field name="show_suburb" type="radio" default="0" label="MOD_CE_CATEGORY_FIELD_PARAMS_TOWN-SUBURB_LABEL" description="MOD_CE_CATEGORY_FIELD_PARAMS_TOWN-SUBURB_DESC">
+          
+          
+        <option value="0">JHIDE</option><option value="1">JSHOW</option></field><field name="show_state" type="radio" default="0" label="MOD_CE_CATEGORY_FIELD_PARAMS_STATE-COUNTY_LABEL" description="MOD_CE_CATEGORY_FIELD_PARAMS_STATE-COUNTY_DESC">
+          
+          
+        <option value="0">JHIDE</option><option value="1">JSHOW</option></field><field name="show_postcode" type="radio" default="0" label="MOD_CE_CATEGORY_FIELD_PARAMS_POST-ZIP_CODE_LABEL" description="MOD_CE_CATEGORY_FIELD_PARAMS_POST-ZIP_CODE_DESC">
+          
+          
+        <option value="0">JHIDE</option><option value="1">JSHOW</option></field><field name="show_country" type="radio" default="0" label="MOD_CE_CATEGORY_FIELD_PARAMS_COUNTRY_LABEL" description="MOD_CE_CATEGORY_FIELD_PARAMS_COUNTRY_DESC">
+          
+          
+        <option value="0">JHIDE</option><option value="1">JSHOW</option></field><field name="show_telephone" type="radio" default="0" label="MOD_CE_CATEGORY_FIELD_PARAMS_TELEPHONE_LABEL" description="MOD_CE_CATEGORY_FIELD_PARAMS_TELEPHONE_DESC">
+          
+          
+        <option value="0">JHIDE</option><option value="1">JSHOW</option></field><field name="show_mobile" type="radio" default="0" label="MOD_CE_CATEGORY_FIELD_PARAMS_MOBILE_LABEL" description="MOD_CE_CATEGORY_FIELD_PARAMS_MOBILE_DESC">
+          
+          
+        <option value="0">JHIDE</option><option value="1">JSHOW</option></field><field name="show_fax" type="radio" default="0" label="MOD_CE_CATEGORY_FIELD_PARAMS_FAX_LABEL" description="MOD_CE_CATEGORY_FIELD_PARAMS_FAX_DESC">
+          
+          
+        <option value="0">JHIDE</option><option value="1">JSHOW</option></field><field name="show_skype" default="0" type="radio" description="MOD_CE_CATEGORY_FIELD_PARAMS_SKYPE_DESC" label="MOD_CE_CATEGORY_FIELD_PARAMS_SKYPE_LABEL">
+          
+          
+        <option value="0">JHIDE</option><option value="1">JSHOW</option></field><field name="show_twitter" default="0" type="radio" description="MOD_CE_CATEGORY_FIELD_PARAMS_TWITTER_DESC" label="MOD_CE_CATEGORY_FIELD_PARAMS_TWITTER_LABEL">
+          
+          
+        <option value="0">JHIDE</option><option value="1">JSHOW</option></field><field name="show_facebook" default="0" type="radio" description="MOD_CE_CATEGORY_FIELD_PARAMS_FACEBOOK_DESC" label="MOD_CE_CATEGORY_FIELD_PARAMS_FACEBOOK_LABEL">
+          
+          
+        <option value="0">JHIDE</option><option value="1">JSHOW</option></field><field name="show_linkedin" default="0" type="radio" description="MOD_CE_CATEGORY_FIELD_PARAMS_LINKEDIN_DESC" label="MOD_CE_CATEGORY_FIELD_PARAMS_LINKEDIN_LABEL">
+          
+          
+        <option value="0">JHIDE</option><option value="1">JSHOW</option></field><field name="show_webpage" type="radio" default="0" label="MOD_CE_CATEGORY_FIELD_PARAMS_WEBPAGE_LABEL" description="MOD_CE_CATEGORY_FIELD_PARAMS_WEBPAGE_DESC">
+          
+          
+        <option value="0">JHIDE</option><option value="1">JSHOW</option></field><field name="show_image" type="radio" default="1" label="MOD_CE_CATEGORY_FIELD_PARAMS_SHOW_IMAGE_LABEL" description="MOD_CE_CATEGORY_FIELD_PARAMS_SHOW_IMAGE_DESC">
+          
+          
+        <option value="0">JHIDE</option><option value="1">JSHOW</option></field><field name="show_misc" type="radio" default="0" label="MOD_CE_CATEGORY_FIELD_SHOWMISC_LABEL" description="MOD_CE_CATEGORY_FIELD_SHOWMISC_DESC">
+          
+          
+        <option value="0">JHIDE</option><option value="1">JSHOW</option></field><field name="misc_limit" type="text" default="100" label="MOD_CE_CATEGORY_FIELD_MISCLIMIT_LABEL" description="MOD_CE_CATEGORY_FIELD_MISCLIMIT_DESC"/><field name="show_extrafield_1" label="COM_CONTACTENHANCED_FIELD_INFORMATION_EXTRA_FIELD_1_LABEL" description="CE_CONTACT_SHOW_EF_DESC" type="radio" default="0">
+          
+          
+        <option value="0">JHIDE</option><option value="1">JSHOW</option></field><field name="show_extrafield_2" label="COM_CONTACTENHANCED_FIELD_INFORMATION_EXTRA_FIELD_2_LABEL" description="CE_CONTACT_SHOW_EF_DESC" type="radio" default="0">
+          
+          
+        <option value="0">JHIDE</option><option value="1">JSHOW</option></field><field name="show_extrafield_3" label="COM_CONTACTENHANCED_FIELD_INFORMATION_EXTRA_FIELD_3_LABEL" description="CE_CONTACT_SHOW_EF_DESC" type="radio" default="0">
+          
+          
+        <option value="0">JHIDE</option><option value="1">JSHOW</option></field><field name="show_extrafield_4" label="COM_CONTACTENHANCED_FIELD_INFORMATION_EXTRA_FIELD_4_LABEL" description="CE_CONTACT_SHOW_EF_DESC" type="radio" default="0">
+          
+          
+        <option value="0">JHIDE</option><option value="1">JSHOW</option></field><field name="show_extrafield_5" label="COM_CONTACTENHANCED_FIELD_INFORMATION_EXTRA_FIELD_5_LABEL" description="CE_CONTACT_SHOW_EF_DESC" type="radio" default="0">
+          
+          
+        <option value="0">JHIDE</option><option value="1">JSHOW</option></field></fieldset><fieldset name="advanced">
+        
+        
+        
+        
+      <field name="layout" type="modulelayout" label="JFIELD_ALT_LAYOUT_LABEL" description="JFIELD_ALT_MODULE_LAYOUT_DESC"/><field name="moduleclass_sfx" type="text" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"/><field name="owncache" type="list" default="1" label="COM_MODULES_FIELD_CACHING_LABEL" description="COM_MODULES_FIELD_CACHING_DESC">
+          
+          
+        <option value="1">JGLOBAL_USE_GLOBAL</option><option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option></field><field name="cache_time" type="text" default="900" label="COM_MODULES_FIELD_CACHE_TIME_LABEL" description="COM_MODULES_FIELD_CACHE_TIME_DESC"/></fieldset></fields>
+  </config>
+</extension>

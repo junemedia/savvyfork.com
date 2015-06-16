@@ -1,0 +1,74 @@
+#main {width:100%; padding:0px; margin-top:5px;font-family:sans-serif; }
+#main h3 {font-size:25px; font-weight:normal;color:#000000;}
+#main h4, #publisher_name {font-size:20px; font-weight:bold;color:#000000;}
+#main p a {font-size:12px; }
+#main ul li {background-color:white;float:left; list-style:none; margin:6px; line-height:12px; width:198px; height:260px; padding:10px; border:1px solid #d2d2d2;background:#F2F2F2;-moz-border-radius:8px;border-radius:8px;}
+
+.recipe_card_img {border:1px solid #A9A9A9;width:196px;height:196px;}
+
+/*dynamically added*/
+#main div.cardblock{width:200px; height:200px; overflow:hidden; position:relative;
+/*-moz-box-shadow: 0px 0px 8px 8px #fff;-webkit-box-shadow: 0px 0px 8px 8px #fff;box-shadow: 0px 0px 8px 8px #fff;*/  }
+#main div.sponsored div.cardblock{width:434px;height:454px;}
+
+/*generic style for all div */
+/*#main div.caption {font-weight:bold; font-size:14px; position:relative; text-align:left; padding-top:30px; padding-left:45px;color:#000000; margin-left:-44px; }*/
+
+#main div.caption{
+color: #000000;
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 1px;
+    text-align: left;
+}
+
+/*.social {position:absolute;top:70px;padding-left:0px; }*/
+.social {position:absolute;bottom:0px;padding-left:0px; }
+.social img{ opacity:1 !important;padding-right:3px; }
+
+.fav { display: block;width:33px;height:30px;background: url('/images/star-0.png') bottom;text-indent: -99999px;background-size:33px 30px; }
+.fav:hover { display: block;width:33px;height:30px;background: url('/images/star-1.png') bottom;text-indent: -99999px;background-size:33px 30px;}
+.isfav { display: block;width:33px;height:30px;background: url('/images/star-1.png') bottom;text-indent: -99999px;background-size:33px 30px;}
+.isfav:hover{display: block;width:33px;height:30px;background: url('/images/star-0.png') bottom;text-indent: -99999px;background-size:33px 30px;}
+#favorite {padding-top:15px;border-left:solid;border-width:1px;border-left-style:solid;border-left-color:#d2d2d2;height:25px;}
+
+#card_text {margin-top:3px;width:200px;height:50px;margin-left:-10px;border:0;}
+#card_text .title{
+	padding-left: 12px;
+    padding-right: 0;
+}
+
+
+/* Recipe Card Css - Added by Leon */
+#main a {font-size:12px; text-decoration:none; line-height:15px;letter-spacing:0px;color:#434343; font-family: 'Lucidia Sans',Verdana,sans-serif;/*font-family: monospace;*/}
+#main .cardDiv{
+	clear:both;
+	position:relative;
+}
+
+#main .cardTitle{
+	clear:both;
+	overflow:hidden;
+}
+
+#main .cardTitle a{
+display:block;
+height:31px;
+}
+#main .cardTitle .sponsored a{
+display:inline;
+height:auto;
+}
+
+#main .sponsored{
+	font-size:9px;
+	font-family:Arial,Helvetica,san-serif;
+}
+#main .cardStar{
+	position:absolute;
+	top:0px;
+	right:7px;
+}
+#main .cardImage{
+	position:relative;
+}

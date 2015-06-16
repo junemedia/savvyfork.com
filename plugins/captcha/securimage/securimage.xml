@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" version="3.0" method="upgrade" group="captcha">
+  <name>Captcha - SecurImage</name>
+  <creationDate>30-Jul-2013</creationDate>
+  <author>Douglas Machado</author>
+  <authorEmail>admin@fok.com.br</authorEmail>
+  <authorUrl>http://idealextensions.com</authorUrl>
+  <copyright>(C) 2012 idealextensions.com - Brazil</copyright>
+  <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+  <version>3.1</version>
+  <description>PLG_CAPTCHA_SECURIMAGE_XML_DESCRIPTION</description>
+  <files folder="site">
+    <folder>fields</folder>
+    <folder>helpers</folder>
+    <folder>language</folder>
+    <folder>lib</folder>
+    <filename>index.html</filename>
+    <filename>script.php</filename>
+    <filename plugin="securimage">securimage.php</filename>
+  </files>
+  <params/>
+  <config>
+    <fields name="params" addfieldpath="/plugins/captcha/securimage/fields">
+      
+      
+    <fieldset name="basic">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+         
+        
+        
+        
+        
+      <field name="public_only" type="radio" default="0" label="PLG_CAPTCHA_SECURIMAGE_PUBLIC_ONLY_LABEL" description="PLG_CAPTCHA_SECURIMAGE_PUBLIC_ONLY_DESC">
+          
+          
+        <option value="1">JYES</option><option value="0">JNO</option></field><field name="ajaxcheck" type="radio" default="0" label="PLG_CAPTCHA_SECURIMAGE_USE_AJAX_LABEL" description="PLG_CAPTCHA_SECURIMAGE_USE_AJAX_DESC">
+          
+          
+        <option value="1">JYES</option><option value="0">JNO</option></field><field name="typeTitle" type="title" label="PLG_CAPTCHA_SECURIMAGE_CAPTCHA_TYPE_LABEL" description="PLG_CAPTCHA_SECURIMAGE_CAPTCHA_TYPE_DESC"/><field name="type" type="switch" default="characters" label="PLG_CAPTCHA_SECURIMAGE_CAPTCHA_TYPE_LABEL" description="PLG_CAPTCHA_SECURIMAGE_CAPTCHA_TYPE_DESC">
+          
+          
+          
+        <option value="characters">PLG_CAPTCHA_SECURIMAGE_CAPTCHA_TYPE_OPT_CHARACTERS</option><option value="math">PLG_CAPTCHA_SECURIMAGE_CAPTCHA_TYPE_OPT_MATH</option><option value="word">PLG_CAPTCHA_SECURIMAGE_CAPTCHA_TYPE_OPT_WORDLIST</option></field><field name="type-word-title" type="title" label="PLG_CAPTCHA_SECURIMAGE_CAPTCHA_TYPE_OPT_WORDLIST" description="PLG_CAPTCHA_SECURIMAGE_CAPTCHA_TYPE_WORD_DESC"/><field name="type-characters-length" type="list" default="4" label="PLG_CAPTCHA_SECURIMAGE_CODE_LENGTH_LABEL" description="PLG_CAPTCHA_SECURIMAGE_CODE_LENGTH_DESC">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        <option value="random">Random (3 to 5 chars)</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option></field><field name="type-characters-charset" type="text" size="53" class="required validate-alphanum" default="ABCDEFGHKLMNPRTUVWYZabcdefghkmnprtuvwyz2346789" label="PLG_CAPTCHA_SECURIMAGE_CHARSET_LABEL" description="PLG_CAPTCHA_SECURIMAGE_CHARSET_DESC"/><field name="audio-image-title" type="title" label="PLG_CAPTCHA_SECURIMAGE_AUDIO_TITLE_LABEL" description="PLG_CAPTCHA_SECURIMAGE_AUDIO_TITLE_DESC"/><field name="play_sound" type="switch" default="0" label="PLG_CAPTCHA_SECURIMAGE_PLAY_SOUND_LABEL" description="PLG_CAPTCHA_SECURIMAGE_PLAY_SOUND_DESC">
+          
+          
+        <option value="sound">JYES</option><option value="0">JNO</option></field><field name="play_sound-sound-noise" type="radio" default="1" label="PLG_CAPTCHA_SECURIMAGE_AUDIO_NOISE_LABEL" description="PLG_CAPTCHA_SECURIMAGE_AUDIO_NOISE_DESC">
+          
+          
+        <option value="1">JYES</option><option value="0">JNO</option></field><field class="color" name="play_sound-sound-bgcolor" type="text" size="12" default="FFFFFF" label="PLG_CAPTCHA_SECURIMAGE_AUDIO_PLAYER_BGCOLOR_LABEL" description="PLG_CAPTCHA_SECURIMAGE_AUDIO_PLAYER_BGCOLOR_DESC"/><field name="play_sound-sound-playersize" type="text" size="5" default="32" class="required validate-integer" label="PLG_CAPTCHA_SECURIMAGE_AUDIO_PLAYER_SIZE_LABEL" description="PLG_CAPTCHA_SECURIMAGE_AUDIO_PLAYER_SIZE_DESC"/><field name="clickMe_Title" type="title" label="PLG_CAPTCHA_SECURIMAGE_CLICK_ME_LABEL" description="PLG_CAPTCHA_SECURIMAGE_CLICK_ME_DESC"/><field name="clickMe" type="radio" default="0" label="PLG_CAPTCHA_SECURIMAGE_CLICK_ME_LABEL" description="PLG_CAPTCHA_SECURIMAGE_CLICK_ME_DESC">
+          
+          
+        <option value="0">JNO</option><option value="1">JYES</option></field><field type="spacer" hr="true" name="play_sound-sound-spacer"/><field name="input-field-location" type="radio" default="bottom" label="PLG_CAPTCHA_SECURIMAGE_INPUT_FIELD_LOCATION_LABEL" description="PLG_CAPTCHA_SECURIMAGE_INPUT_FIELD_LOCATION_DESC">
+          
+          
+        <option value="bottom">PLG_CAPTCHA_SECURIMAGE_OPT_BOTTOM</option><option value="right">PLG_CAPTCHA_SECURIMAGE_OPT_RIGHT</option></field><field name="reload" type="switch" default="image" label="PLG_CAPTCHA_SECURIMAGE_RELOAD_LINK_LABEL" description="PLG_CAPTCHA_SECURIMAGE_RELOAD_LINK_DESC">
+          
+          
+        <option value="image">JSHOW</option><option value="0">JHIDE</option></field><field name="reload-image-src" type="imagethumbnails" default="refresh.png" label="PLG_CAPTCHA_SECURIMAGE_RELOAD_IMAGE_LABEL" directory="plugins/captcha/securimage/lib/images/reload/" exclude="audio_icon.gif|.txt|.html" hide_none="1" hide_default="1" description="PLG_CAPTCHA_SECURIMAGE_RELOAD_IMAGE_DESC"/><field name="background" type="imagethumbnails" default="" label="PLG_CAPTCHA_SECURIMAGE_BACKGROUND_IMAGE_LABEL" directory="plugins/captcha/securimage/lib/backgrounds/" hide_default="1" exclude="index.html" description="PLG_CAPTCHA_SECURIMAGE_BACKGROUND_IMAGE_DESC"/><field name="ttf" type="filelist" default="AHGBold.ttf" label="PLG_CAPTCHA_SECURIMAGE_FONT_LABEL" directory="plugins/captcha/securimage/lib/ttf/" hide_none="1" hide_default="1" filter=".ttf" description="PLG_CAPTCHA_SECURIMAGE_FONT_DESC"/><field name="width" type="text" size="8" default="160" class="required validate-integer" label="PLG_CAPTCHA_SECURIMAGE_IMAGE_WIDTH_LABEL" description="PLG_CAPTCHA_SECURIMAGE_IMAGE_WIDTH_DESC"/><field name="height" type="text" size="8" default="70" class="required validate-integer" label="PLG_CAPTCHA_SECURIMAGE_IMAGE_HEIGHT_LABEL" description="PLG_CAPTCHA_SECURIMAGE_IMAGE_HEIGHT_DESC"/><field name="perturbation" type="list" default="0.7" label="PLG_CAPTCHA_SECURIMAGE_CODE_PERTURBATION_LABEL" description="PLG_CAPTCHA_SECURIMAGE_CODE_PERTURBATION_DESC">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        <option value="0.1">J1</option><option value="0.2">J2</option><option value="0.3">J3</option><option value="0.4">J4</option><option value="0.5">J5</option><option value="0.6">J6</option><option value="0.7">J7</option><option value="0.8">J8</option><option value="0.9">J9</option><option value="1">J10</option></field><field class="color" name="text_color" type="text" size="12" default="3D3D3D" label="PLG_CAPTCHA_SECURIMAGE_TEXT_COLOR_LABEL" description="PLG_CAPTCHA_SECURIMAGE_TEXT_COLOR_DESC"/><field name="number_lines" type="list" default="8" label="PLG_CAPTCHA_SECURIMAGE_NUMBER_OF_LINES_LABEL" description="PLG_CAPTCHA_SECURIMAGE_NUMBER_OF_LINES_DESC">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        <option value="0"/><option value="1">J1</option><option value="2">J2</option><option value="3">J3</option><option value="4">J4</option><option value="5">J5</option><option value="6">J6</option><option value="7">J7</option><option value="8">J8</option><option value="9">J9</option><option value="10">J10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">J15</option></field><field name="noise_level" type="list" default="0" label="PLG_CAPTCHA_SECURIMAGE_NOISE_LEVEL_LABEL" description="PLG_CAPTCHA_SECURIMAGE_NOISE_LEVEL_DESC">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        <option value="0">0</option><option value="1">J1</option><option value="2">J2</option><option value="3">J3</option><option value="4">J4</option><option value="5">J5</option><option value="6">J6</option><option value="7">J7</option><option value="8">J8</option><option value="9">J9</option><option value="10">J10</option></field><field class="color" name="line_color" type="text" size="12" default="7C7C7C" label="PLG_CAPTCHA_SECURIMAGE_LINES_COLOR_LABEL" description="PLG_CAPTCHA_SECURIMAGE_LINES_COLOR_DESC"/><field name="image_signature" type="text" size="53" default="" label="PLG_CAPTCHA_SECURIMAGE_SIGNATURE_LABEL" description=""/><field class="color" name="signature_color" type="text" size="12" default="FFFFFF" label="PLG_CAPTCHA_SECURIMAGE_SIGNATURE_COLOR_LABEL" description=""/><field class="color" name="bg_color" type="text" size="12" default="FFFFFF" label="PLG_CAPTCHA_SECURIMAGE_BACKGROUND_COLOR_LABEL" description="PLG_CAPTCHA_SECURIMAGE_BACKGROUND_COLOR_LABEL"/></fieldset><fieldset name="advanced">
+        
+      <field name="custom-css" type="textarea" filter="raw" default=".securimage-container img{padding-right:7px;cursor:pointer;}" rows="12" cols="50" label="PLG_CAPTCHA_SECURIMAGE_CUSTOM_CSS_LABEL" description="PLG_CAPTCHA_SECURIMAGE_CUSTOM_CSS_DESC"/></fieldset></fields>
+  </config>
+</extension>

@@ -1,0 +1,163 @@
+#ce-contactsliderwrap {
+	margin:0 0 20px 0;
+	padding: 0;
+	background: url(../images/corner-br.gif) no-repeat bottom right;
+}
+
+.ce-contactslider {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	width: auto !important;
+	/* height: 230px; /* May this be removed ?*/
+	width: 100%;
+	position: relative;
+}
+
+#ce-contactsliderwrap div.moduletable {
+	margin: 0;
+	padding: 0 !important;
+}
+
+/* Content Slider Center */
+.ce-contactslider-center {
+	margin: 0 4px;
+	padding: 0;
+	float: left;
+	position:relative;
+	overflow:hidden;
+}
+
+
+div.ce_slideimages {
+	margin:0;
+}
+
+.ce-contactslider-center span {
+	width: 140px;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+
+.ce-contactslider-center img {
+	background: #EBF2F6;
+	border: 1px solid #D5E2E7;
+	margin: 0;
+	padding: 3px;
+	overflow:hidden;
+}
+
+
+/* Button control ---*/
+.ce-button-control {
+	background: url(../images/bc-bg.gif) no-repeat 830px 0px #ebf2f6;
+	border-bottom: 1px solid #d5e2e7;
+	height: 27px;
+	position: relative;
+	width: 100%;
+}
+
+.ce-button-control .ce-text-heading {
+	font-weight:bold;
+	padding:2px 5px;
+	float:left;
+}
+
+.ce-button-control a {
+	display: block;
+	float: left;
+	line-height: 20px;
+	margin-left: 5px;
+	margin-top: 2px;
+	padding: 0 5px;
+	background: #fff;
+	border: 1px solid #cfd9df;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+.ce-button-control a:hover,
+.ce-button-control a:active,
+.ce-button-control a:focus {
+	text-decoration: none;
+	color: #fff;
+	background: url(../images/grad-d3.gif) repeat-x top #29739d;
+	border: 1px solid #215d7f;
+}
+.ce-button-control a.active {
+	text-decoration: none;
+	color: #fff;
+	background: url(../images/grad-d3.gif) repeat-x top #29739d;
+	border: 1px solid #215d7f;
+}
+
+.ce-contactslider-left,
+.ce-contactslider-right {
+	background: url(../images/bc-lr.png) no-repeat top right;
+	position: absolute;
+	height: 17px;
+	right: 35px;
+	top: 4px;
+	width: 17px;
+}
+
+.ce-contactslider-left {
+	background: url(../images/bc-lr.png) no-repeat top left;
+	right: 56px;
+}
+
+.ce-contactslider-left:hover,
+.ce-contactslider-right:hover {
+	background: url(../images/bc-lr.png) no-repeat bottom right;
+	cursor: pointer;
+}
+
+.ce-contactslider-left:hover {
+	background: url(../images/bc-lr.png) no-repeat bottom left;
+}
+
+.ce-button-control strong {
+	font-size: 110%;
+	padding-left: 20px;
+	line-height: 27px;
+	display: block;
+	float: left;
+}
+.ce-button-control-side-horizontal-previous,
+.ce-button-control-side-horizontal-next{float:left;width:16px}
+.ce-button-control-side-horizontal-previous .ce-contactslider-side{
+	background: url(../images/arrows/re-left.gif) no-repeat center center;
+	cursor: pointer;
+	height:60px}
+.ce-button-control-side-horizontal-previous .ce-contactslider-side:hover{
+	background: url(../images/arrows/re-left-hover.gif) no-repeat center center}
+.ce-button-control-side-horizontal-next .ce-contactslider-side{
+	background: url(../images/arrows/re-right.gif) no-repeat center center;
+	cursor: pointer;
+	height:60px}
+.ce-button-control-side-horizontal-next .ce-contactslider-side:hover{
+	background: url(../images/arrows/re-right-hover.gif) no-repeat center center}
+
+.ce-button-control-side-vertical-next{clear:both}
+.ce-button-control-side-vertical-previous .ce-contactslider-side{
+	background: url(../images/arrows/re-up.gif) no-repeat center center;
+	cursor: pointer}
+.ce-button-control-side-vertical-previous .ce-contactslider-side:hover{
+	background: url(../images/arrows/re-up-hover.gif) no-repeat center center}
+.ce-button-control-side-vertical-next .ce-contactslider-side{
+	background: url(../images/arrows/re-down.gif) no-repeat center center;
+	cursor: pointer}
+.ce-button-control-side-vertical-next .ce-contactslider-side:hover{
+	background: url(../images/arrows/re-down-hover.gif) no-repeat center center}
+
+
+.ce-contact-details address span,
+.ce-contact-details span{text-align:left}
+div.ce-slider-readmore a{text-transform:none;padding-right:10px}
+.mod-ce-contactslider-position,
+.mod-ce-contactslider-category,
+.mod-ce-contactslider-date{font-size:90%;display:block}

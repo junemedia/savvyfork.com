@@ -1,0 +1,37 @@
+.vista{position:absolute;font-size:10px;font-family:Tahoma, sans-serif;color:#000;line-height:normal;width:172px;height:135px;background:url(frame.png) no-repeat;padding:14px}
+.vista .header{position:relative;height:15px;margin-bottom:5px;padding-top:1px}
+.vista .header .title{text-align:center;margin:0 18px}
+.vista .header .previous,.vista .header .next,.vista .header .closeButton{position:absolute;cursor:pointer;text-indent:-40px;overflow:hidden;width:12px;height:12px;top:2px;background-image:url(buttons.png);background-position:left top;background-repeat:no-repeat}
+.vista .header .previous{left:4px}
+.vista .header .previous:hover{background-position:left bottom}
+.vista .header .next{right:4px;background-position:-13px top}
+.vista .header .next:hover{background-position:-13px bottom}
+.vista .header .closeButton{display:none;right:0;top:0;background-position:right top}
+.vista .header .closeButton:hover{background-position:right bottom}
+.vista .body{position:relative;top:0;left:2px;width:168px;height:112px;overflow:hidden}
+.vista .time{position:relative;width:100%;height:100%}
+.vista .time .hour,.vista .time .separator,.vista .time .minutes{border:1px solid #ccc;background:#fff;width:50px;font-size:32px;position:absolute;top:10px;text-align:center;padding:2px}
+.vista .time .hour{left:15px}
+.vista .time .separator{background:transparent;border:0;width:10px;left:76px}
+.vista .time .minutes{left:95px}
+.vista .time .ok{position:absolute;top:65px;width:136px;left:15px;font-size:20px}
+.vista .days .day{float:left;text-align:center;overflow:hidden;width:23px;height:15px;font-size:10px;margin:0 1px 1px 0}
+.vista .days .titles{height:15px;border-bottom:1px solid #e0e0e0;margin-bottom:1px}
+.vista .days .week .day:hover{background:url(days.png) left top no-repeat;color:#0084AA}
+.vista .days .otherMonth{color:#aaa}
+.vista .days .selected{background:url(days.png) left bottom no-repeat;color:#316879}
+.vista .months .month{float:left;cursor:pointer;text-align:center;padding-top:6px;width:55px;overflow:hidden;height:21px;margin:0 1px 1px 0}
+.vista .months .month:hover{background:url(months.png) left top no-repeat;color:#0084AA}
+.vista .months .selected{background:url(months.png) left bottom no-repeat;color:#316879}
+.vista .years .year{float:left;cursor:pointer;text-align:center;padding-top:6px;width:32px;overflow:hidden;height:21px;margin:0 1px 1px 0}
+.vista .years .year:hover{background:url(years.png) left top no-repeat;color:#0084AA}
+.vista .years .selected{background:url(years.png) left bottom no-repeat;color:#316879}
+.vista .unavailable{background:none!important;color:#fbb!important;cursor:default!important}
+.vista table,.vista th,.vista td{border-spacing:0;border:0!important;border-collapse:inherit}
+.vista th,.vista td{padding:0}
+.footer input{width:31%}
+.vista .days .day6,.vista .months .month3,.vista .months .month6,.vista .months .month9,.vista .months .month12,.vista .years .year4,.vista .years .year9,.vista .years .year14,.vista .years .year19{margin-right:0}
+.vista .days .week5 .day,.vista .months .month10,.vista .months .month11,.vista .months .month12,.vista .years .year15,.vista .years .year16,.vista .years .year17,.vista .years .year18,.vista .years .year19{margin-bottom:0}
+.vista .days .week .day,input.cf-input-date{cursor:pointer}
+.cf-type-date input{background-image:url("../datepicker/date-range.png")!important;background-position:98% 2px!important;background-repeat: no-repeat !important}
+.cf-type-date input.required{background-image:url("../datepicker/date-range-required.png")!important;background-position:right top!important}

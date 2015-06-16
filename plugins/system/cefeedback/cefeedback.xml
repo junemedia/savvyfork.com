@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" version="3.0" method="upgrade" group="system">
+  <name>System - Contact Enhanced (CE) Feedback</name>
+  <creationDate>29-Jul-2013</creationDate>
+  <author>Douglas Machado</author>
+  <authorEmail>admin@fok.com.br</authorEmail>
+  <authorUrl>http://idealextensions.com</authorUrl>
+  <copyright>(C) 2013 idealextensions.com - Brazil</copyright>
+  <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+  <version>3.0.8</version>
+  <description>PLG_SYSTEM_CEFEEDBACK_XML_DESCRIPTION</description>
+  <files folder="site">
+    <folder>images</folder>
+    <folder>language</folder>
+    <filename plugin="cefeedback">cefeedback.php</filename>
+    <filename>index.html</filename>
+  </files>
+  <params/>
+  <config>
+    <fields name="params" addfieldpath="/administrator/components/com_contactenhanced/models/fields">
+      
+      
+    <fieldset name="basic">
+        
+        
+        
+        
+        
+        
+        
+        
+      <field name="media" type="switch" default="ce" label="PLG_SYSTEM_CEFEEDBACK_MODAL_WINDOW_CONTENT_LABEL" description="PLG_SYSTEM_CEFEEDBACK_MODAL_WINDOW_CONTENT_DESC">
+          
+          
+          
+        <option value="ce">PLG_SYSTEM_CEFEEDBACK_OPT_CEFORM</option><option value="article">PLG_SYSTEM_CEFEEDBACK_OPT_ARTICLE</option><option value="url">PLG_SYSTEM_CEFEEDBACK_OPT_URL</option></field><field name="media-ce-id" type="modal_contacts" default="" label="PLG_SYSTEM_CEFEEDBACK_SELECT_CONTACT_LABEL" description="The contact form to display">
+				</field><field name="media-article-id" type="modal_article" default="" label="PLG_SYSTEM_CEFEEDBACK_ARTICLE_LABEL" description="PLG_SYSTEM_CEFEEDBACK_ARTICLE_DESC">
+				</field><field name="media-article-tmpl" type="radio" default="component" label="PLG_SYSTEM_CEFEEDBACK_ARTICLE_CONTENT_ONLY_LABEL" description="PLG_SYSTEM_CEFEEDBACK_ARTICLE_CONTENT_ONLY_DESC">
+          
+          
+        <option value="">JNO</option><option value="component">JYES</option></field><field name="media-url-link" type="text" default="" label="PLG_SYSTEM_CEFEEDBACK_URL_LINK_LABEL" description="PLG_SYSTEM_CEFEEDBACK_URL_LINK_DESC"/><field name="feedback-image" type="imagelist" directory="/plugins/system/cefeedback/images/en-GB" hide_default="1" hide_none="1" default="feedback-red.png" label="PLG_SYSTEM_CEFEEDBACK_IMAGE_LABEL" description="PLG_SYSTEM_CEFEEDBACK_IMAGE_DESC">
+				</field><field name="feedback-image-hover" type="imagelist" directory="/plugins/system/cefeedback/images/en-GB" hide_default="1" hide_none="1" default="feedback-orange.png" label="PLG_SYSTEM_CEFEEDBACK_IMAGE_HOVER_LABEL" description="PLG_SYSTEM_CEFEEDBACK_IMAGE_HOVER_DESC">
+				</field><field name="position" type="radio" default="right" label="PLG_SYSTEM_CEFEEDBACK_IMAGE_POSITION_LABEL" description="PLG_SYSTEM_CEFEEDBACK_IMAGE_POSITION_DESC">
+          
+          
+        <option value="left">PLG_SYSTEM_CEFEEDBACK_OPT_LEFT</option><option value="right">PLG_SYSTEM_CEFEEDBACK_OPT_RIGHT</option></field></fieldset><fieldset name="advanced">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      <field name="loadonmobile" type="radio" default="0" label="PLG_SYSTEM_CEFEEDBACK_LOAD_ON_MOBILE_LABEL" description="PLG_SYSTEM_CEFEEDBACK_LOAD_ON_MOBILE_DESC">
+          
+          
+          
+        <option value="0">JNO</option><option value="1">JYES</option><option value="full">PLG_SYSTEM_CEFEEDBACK_OPT_FULL_WINDOW</option></field><field name="avoid_menuitems" type="menuitem" multiple="multiple" label="PLG_SYSTEM_CEFEEDBACK_AVOID_MENU_ITEMS_LABEL" description="PLG_SYSTEM_CEFEEDBACK_AVOID_MENU_ITEMS_DESC" state="1">
+          
+        <option value="">JNONE</option></field><field name="avoid_components" type="cesql" multiple="multiple" label="PLG_SYSTEM_CEFEEDBACK_AVOID_COMPONENTS_LABEL" default="" key_field="value" value_field="text" description="PLG_SYSTEM_CEFEEDBACK_AVOID_COMPONENTS_DESC" query="SELECT `name` AS `text`, `element` AS `value` FROM #__extensions WHERE type= 'component' AND extension_id NOT IN (1,3,5,6,7,9,10,11,12,13,14,15,16,18,20,23,24) ORDER BY name ASC">
+          
+        <option value="">JNONE</option></field><field name="template" type="folderlist" hide_none="1" directory="/templates" exclude="system" label="PLG_SYSTEM_CEFEEDBACK_TEMPLATE_LABEL" description="PLG_SYSTEM_CEFEEDBACK_TEMPLATE_DESC">
+				</field><field name="window-size-width" type="text" default="800" label="PLG_SYSTEM_CEFEEDBACK_WINDOW_WIDTH_LABEL" description="PLG_SYSTEM_CEFEEDBACK_WINDOW_WIDTH_DESC">
+				</field><field name="window-size-height" type="text" default="480" label="PLG_SYSTEM_CEFEEDBACK_WINDOW_HEIGHT_LABEL" description="PLG_SYSTEM_CEFEEDBACK_WINDOW_HEIGHT_DESC">
+				</field><field type="spacer">
+				</field><field name="feedback-link-height" type="text" default="100" label="PLG_SYSTEM_CEFEEDBACK_LINK_HEIGHT_LABEL" description="PLG_SYSTEM_CEFEEDBACK_LINK_HEIGHT_DESC">
+				</field><field name="feedback-link-width" type="text" label="PLG_SYSTEM_CEFEEDBACK_LINK_WIDTH_LABEL" default="26" description="PLG_SYSTEM_CEFEEDBACK_LINK_WIDTH_DESC">
+				</field><field name="feedback-link-distance" type="text" default="45" label="PLG_SYSTEM_CEFEEDBACK_LINK_DISTANCE_LABEL" description="PLG_SYSTEM_CEFEEDBACK_LINK_DISTANCE_DESC">
+				</field><field name="modal" type="radio" default="1" label="PLG_SYSTEM_CEFEEDBACK_LINK_MODAL_WINDOW_LABEL" description="PLG_SYSTEM_CEFEEDBACK_LINK_MODAL_WINDOW_DESC">
+          
+          
+        <option value="1">JYES</option><option value="0">JNO</option></field></fieldset></fields>
+  </config>
+</extension>

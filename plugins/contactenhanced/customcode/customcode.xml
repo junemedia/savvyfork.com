@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" version="3.0" method="upgrade" group="contactenhanced">
+  <name>Contact Enhanced - Custom Code</name>
+  <creationDate>29-Jul-2013</creationDate>
+  <author>Douglas Machado</author>
+  <authorEmail>admin@fok.com.br</authorEmail>
+  <authorUrl>http://idealextensions.com</authorUrl>
+  <copyright>(C) 2013 idealextensions.com - Brazil</copyright>
+  <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+  <version>3.0.0</version>
+  <description>PLG_CONTACTENHANCED_CUSTOMCODE_XML_DESCRIPTION</description>
+  <files folder="site">
+    <folder>code</folder>
+    <folder>language</folder>
+    <filename plugin="customcode">customcode.php</filename>
+    <filename>index.html</filename>
+  </files>
+  <params/>
+  <config>
+    <fields name="params" addfieldpath="/administrator/components/com_contactenhanced/models/fields">
+      
+    <fieldset name="basic">
+       
+        
+
+        
+        
+        
+        
+      <field name="onSubmitContactTitle" type="title" label="PLG_CONTACTENHANCED_CUSTOMCODE_FIELD_ON_SUBMIT_LABEL" description="PLG_CONTACTENHANCED_CUSTOMCODE_FIELD_ON_SUBMIT_DESC"/><field name="onSubmitContact" type="filelist" default="0" label="PLG_CONTACTENHANCED_CUSTOMCODE_FIELD_ON_SUBMIT_LABEL" description="PLG_CONTACTENHANCED_CUSTOMCODE_FIELD_ON_SUBMIT_DESC" directory="plugins/contactenhanced/customcode/code/onSubmitContact/" hide_none="0" hide_default="1" filter=".php"/><field name="onValidateContactTitle" type="title" label="PLG_CONTACTENHANCED_CUSTOMCODE_FIELD_ON_VALIDATE_LABEL" description="PLG_CONTACTENHANCED_CUSTOMCODE_FIELD_ON_VALIDATE_DESC"/><field name="onValidateContact" type="filelist" default="0" label="PLG_CONTACTENHANCED_CUSTOMCODE_FIELD_ON_VALIDATE_LABEL" description="PLG_CONTACTENHANCED_CUSTOMCODE_FIELD_ON_VALIDATE_DESC" directory="plugins/contactenhanced/customcode/code/onValidate/" hide_none="0" hide_default="1" filter=".php"/><field name="onAfterSendFormTitle" type="title" default="0" label="PLG_CONTACTENHANCED_CUSTOMCODE_FIELD_ON_AFTER_SEND_FORM_LABEL" description="PLG_CONTACTENHANCED_CUSTOMCODE_FIELD_ON_AFTER_SEND_FORM_DESC"/><field name="onAfterSendForm" type="filelist" default="0" label="PLG_CONTACTENHANCED_CUSTOMCODE_FIELD_ON_AFTER_SEND_FORM_LABEL" description="PLG_CONTACTENHANCED_CUSTOMCODE_FIELD_ON_AFTER_SEND_FORM_DESC" directory="plugins/contactenhanced/customcode/code/onAfterSendForm/" hide_none="0" hide_default="1" filter=".php"/></fieldset></fields>
+  </config>
+</extension>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" version="3.0" method="upgrade" group="editors-xtd">
+  <name>Button - Contact Enhanced Form</name>
+  <creationDate>29-Jul-2013</creationDate>
+  <author>Douglas Machado</author>
+  <authorEmail>admin@fok.com.br</authorEmail>
+  <authorUrl>http://idealextensions.com</authorUrl>
+  <copyright>(C) 2013 idealextensions.com - Brazil</copyright>
+  <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+  <version>3.0.1</version>
+  <description>PLG_EDITORSXTD_CONTACTENHANCED_XML_DESCRIPTION</description>
+  <files folder="site">
+    <folder>language</folder>
+    <filename plugin="contactenhanced">contactenhanced.php</filename>
+    <filename>index.html</filename>
+  </files>
+  <params/>
+  <config>
+    <fields name="params">
+      
+    <fieldset name="basic">
+        
+      <field name="avoid_components" type="sql" multiple="multiple" size="10" label="Avoid Components" default="" key_field="value" value_field="text" description="Contact Enhanced Button will not be visible for the selected components" query="SELECT `name` AS `text`, `element` AS `value` FROM #__extensions WHERE type= 'component' AND extension_id NOT IN (1,3,5,6,7,9,10,11,12,13,14,15,16,18,20,23,24) ORDER BY name ASC">
+          
+        <option value="">JNONE</option></field></fieldset></fields>
+  </config>
+</extension>

@@ -1,0 +1,81 @@
+/* 
+    Document   : com_yoorecipe_import.css
+    Created on : 2013-6-19, 14:06:31
+    Author     : Leon Zhao
+    Description: Import API CSS package
+*/
+
+button{
+    cursor: pointer;
+}
+
+#listItemInput{
+    position: relative;
+    margin-bottom: 5px;
+    z-index: 10;
+    width:90%;
+}
+
+#listItemInput ul{
+    overflow: hidden;
+}
+
+#listItemInput ul li{
+    overflow: hidden;
+}
+
+#listItemInput ul li input{
+    float: left;
+    border: 1px background solid;
+    height: 25px;
+    width:700px;
+    margin: 2px;
+}
+.previewButton{
+    float: left;
+    margin: 2px;
+}
+
+.preview{
+    float: left;
+    margin: 2px;
+    display: none;
+    width:75%;
+}
+
+.alert{
+    color: red;
+    font-weight: bold;
+    margin: 2px;
+}
+
+
+.li_title{
+    padding-left: 5px;
+    background-color:darkseagreen;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.li_content{
+    background-color: honeydew;
+    padding-left: 50px;
+}
+
+#li_ul li img{
+    float: left;
+    width: 200px;
+    height: 200px;
+}
+
+.li_content input{
+    width:400px;
+}
+
+#listItemFreeForm ul{
+    margin-bottom: 10px;
+}
+
+.recipeTitle{
+    font-size: 16px;
+}

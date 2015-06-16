@@ -1,0 +1,42 @@
+.mod_yoorecipe_categories {
+
+}
+
+.mod_yoorecipe_categories > div.introtext {
+
+}
+
+.mod_yoorecipe_categories > div.outrotext {
+
+}
+#categories_dropdown {
+height: 20px;
+border:2px solid #c13339;
+padding-right:5px;
+padding-bottom:2px;
+width:262px;
+}
+#category_select {
+	background: url("/images/drop_down_arrow.png") no-repeat scroll right center #FFFFFF !important;
+    border: medium none !important;
+    float: none !important;
+    height: 35px !important;
+    line-height: 0 !important;
+    margin: 0 !important;
+    overflow: hidden;
+    padding-top: 2px;
+    text-align: left;
+    width: 172px;
+}
+#categories_dropdown select {
+   background: none repeat scroll 0 0 transparent;
+    border: 0 none;
+    border-radius: 0 0 0 0;
+    font-size: 16px;
+    height: 34px;
+    line-height: 1;
+    max-width: none;
+    padding: 5px 0 5px 5px;
+    width: 188px;
+	color:#F8AF00;
+}
