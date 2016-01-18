@@ -256,15 +256,15 @@ $currencyLbl	= $params->get('currency_lbl', JText::_('MOD_YOORECIPE_SEARCH_PRICE
 $yooRecipeparams 	= JComponentHelper::getParams( 'com_yoorecipe' );
 $currency			= $yooRecipeparams->get('currency');
 ?>
-<form id="mod_yoorecipe_search_form" action="<?php echo JRoute::_('index.php?searchPerformed=1&task=search&option=com_yoorecipe&view=search&layout=search');?>" method="get">
+<form id="mod_yoorecipe_search_form" action="<?php echo JRoute::_('index.php');?>" method="post">
 
-	<!--<div>
+	<div>
 		<input type="hidden" name="searchPerformed" value="1"/>
 		<input type="hidden" name="task" value="search" />
 		<input type="hidden" name="option" value="com_yoorecipe" />
 		<input type="hidden" name="view" value="search" />
 		<input type="hidden" name="layout" value="search" />
-	</div>-->
+	</div>
 	
 	<?php 
 	if (strlen($params->get('intro_text')) > 0) {

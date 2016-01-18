@@ -99,10 +99,10 @@ $currentUrl = JURI::getInstance();
 		<input type="button" class="btn" onclick="history.back();" value="<?php echo JText::_('COM_YOORECIPE_BACK'); ?>"/>
 	</div>-->
 
-<?php
-	if ($pagination_position == 'bottom' || $pagination_position == 'both') {
+<?php 
+	/*if ($pagination_position == 'bottom' || $pagination_position == 'both') { 
 		echo JHtml::_('yoorecipeutils.generatePagination', $this->pagination);
-	}
+	}*/
 ?>
 </form>
 </div>

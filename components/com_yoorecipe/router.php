@@ -140,6 +140,7 @@ function YooRecipeBuildRoute( &$query )
 function YooRecipeParseRoute( $segments )
 {
 	$vars = array();
+	// print_r($segments);
 	
 	$params 	= JComponentHelper::getParams('com_yoorecipe');
 	if ($segments[0] == $params->get('seo_categories', 'categories') )
@@ -226,13 +227,6 @@ function YooRecipeParseRoute( $segments )
 		$vars['view'] = 'tags';
 		$vars['layout'] = 'tags';
 		$vars['value'] = $segments[1];
-	}
-	
-	else if ($segments[0] == 'search') {
-		$vars['view'] = 'search';
-		$vars['layout'] = 'search';
-		$vars['task'] = 'search';
-		$vars['searchPerformed'] = 1;
 	}
 
 	//index.php?option=com_yoorecipe&task=addToFavourites&format=raw&recipeId=@@recipe@@

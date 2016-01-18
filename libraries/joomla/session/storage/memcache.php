@@ -56,16 +56,16 @@ class JSessionStorageMemcache extends JSessionStorage
 	 */
 	public function register()
 	{
-        $config = JFactory::getConfig();
+        	$config = JFactory::getConfig();
 
-        // This will be an array of loveliness
-        // @todo: multiple servers
-        $this->_servers = array(
-            array(
-                'host' => $config->get('memcache_server_host', 'localhost'),
-                'port' => $config->get('memcache_server_port', 11211)
-            )
-        );
+        	// This will be an array of loveliness
+        	// @todo: multiple servers
+        	$this->_servers = array(
+            		array(
+                		'host' => $config->get('memcache_server_host', 'localhost'),
+                		'port' => $config->get('memcache_server_port', 11211)
+            		)
+        	);
 		ini_set('session.save_path', $this->_servers[0]['host'] . ':' . $this->_servers[0]['port']);
 		ini_set('session.save_handler', 'memcache');
 	}

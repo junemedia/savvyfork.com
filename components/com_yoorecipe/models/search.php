@@ -30,10 +30,7 @@ class YooRecipeModelSearch extends JModelList
 	protected function populateState($ordering = null, $direction = null)
 	{
 		// set to 0 to show all
-		/*$yooRecipeparams 	= JComponentHelper::getParams('com_yoorecipe');
-		$limit 				= $app->getUserStateFromRequest('global.list.limit', 'limit', $yooRecipeparams->get('list_length', 10), 'int');*/
-		$limit = 60;	// override limit
-		$this->setState('list.limit', $limit);
+		$this->setState('list.limit', 0);
 
 		$input 	= JFactory::getApplication()->input;
 		$app 	= JFactory::getApplication();

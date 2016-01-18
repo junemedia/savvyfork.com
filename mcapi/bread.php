@@ -2,7 +2,7 @@
 
 include_once("functions.php");
 
-$subcampid = '4325';	// SF_R4L CrossPromo_0615
+$subcampid = '4369';	// SF_R4L CrossPromo_1015
 $listid = '583,508';
 $message = '';
 if ($_POST['submit'] == 'Y') {

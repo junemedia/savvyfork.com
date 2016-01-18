@@ -72,7 +72,7 @@ class YooRecipeViewSearch extends JViewLegacy
 		if ($this->searchPerformed) {
 			
 			$this->items = $this->get('Items');
-			$this->pagination = $this->get('Pagination');
+			//$this->pagination = $this->get('Pagination');
 			
 			foreach ($this->items as $recipe)
 			{	

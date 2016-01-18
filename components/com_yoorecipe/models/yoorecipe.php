@@ -111,6 +111,7 @@ class YooRecipeModelYooRecipe extends JModelList
         
         
         $recipe = getCache($cacheFile, $cacheLife);
+        if(LEON_DEBUG){ $recipe = false;}
         
         if($recipe === false){
 		    // Create a new query object.		

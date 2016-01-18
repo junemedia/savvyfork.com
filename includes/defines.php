@@ -37,6 +37,8 @@ function leon_debug_check()
             '60.216.3.163',             // E5 Jinan Office
             '216.180.167.121',           // SC Chicago office
             '10.10.13.240',                 // E5 Jinan Office internal IP
+	    '123.168.0.82',
+	    '168.235.74.19',
 	    '66.54.186.254'
             );
     $user = array('leonzw');

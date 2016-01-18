@@ -1,0 +1,783 @@
+<?php
+defined('_JEXEC') or die('Restricted access');
+
+require_once("simple_html_dom.php"); 
+
+define("CUSTOM_IMAGE_PATH", dirname(__FILE__) . '/../../../images/com_yoorecipe/');
+
+if(!defined('LEON_DEBUG')) define("LEON_DEBUG", false);
+
+
+$config_obj = new JConfig();
+
+global $db_link;
+
+$db_link = mysql_connect($config_obj->host,$config_obj->user,$config_obj->password);
+mysql_selectdb($config_obj->db, $db_link);
+
+
+// make sure we use the right database
+   
+iconv_set_encoding("input_encoding", "UTF-8");
+iconv_set_encoding("internal_encoding", "UTF-8");
+iconv_set_encoding("output_encoding", "UTF-8");
+//var_dump(iconv_get_encoding('all'));   
+
+Interface GoogleFormatInterface
+{
+    /**
+    * @desc Return the image url
+    * @return String Array
+    */
+    public function getImage();
+    
+    /**
+    * @desc Return the title
+    * @return String
+    */
+    public function getTitle();
+    
+    /**
+    * @desc Return the ingredients rows
+    * @return String Array
+    */
+    public function getIngredients();    
+}
+
+Interface DBSaveInterface
+{
+    /**
+    * Get the Image Array
+    * @return (string)Array
+    */
+    public function getImageArray();
+    
+    /**
+    * Get the recipe title
+    * @return string
+    */
+    public function getTitle();
+    
+    /**
+    * Get the ingredients Array
+    * @return (String)array
+    * 
+    */
+    public function getIngredientsArray();
+    
+    /**
+    * Get the from link
+    * @return String
+    */
+    public function getFromUrl();
+}
+
+class FreeFormSubmission implements DBSaveInterface
+{
+    private $_data = false;
+    private $_imagePF = false;
+    /**
+    * @desc Return the image url
+    * @return String Array
+    */
+    public function getImage(){
+        // Get the image
+        if(isset($this->_data['recipeImage'])){
+            $img =  $this->_data['recipeImage'];
+            return $img;
+        }else{
+            return false;
+        }
+    }
+    
+    public function getImageArray(){
+        return $this->getImagePF();       
+    }
+    public function saveImage(){
+        
+        
+        $imageArray = $this->getImage();
+        
+        //print_r($imageArray);
+        
+        $title = $this->getTitle();
+         
+		$title = str_replace("\"", "'", $title);
+        $title = addslashes($title);
+
+        
+        $alias = str_replace(" ",'-',$title); 
+        $alias = str_replace("'", '_', $alias);
+        $alias = str_replace("\"", '_', $alias);
+        $num=0;
+        
+        foreach($imageArray as $image){
+            $imageUrl = str_replace(' ', '%20', $image); 
+            //echo $imageUrl;
+            //$imageFile = md5(time() . $imageUrl) . '.jpg'; 
+			 if($num==0)
+            {
+            	$imageFile = $alias . '.jpg';
+            }else{
+            	$imageFile = $alias.'_'.$num . '.jpg';
+            }
+			$imageFile = md5($imageFile.time());
+            $img = CUSTOM_IMAGE_PATH . $imageFile ;
+            file_put_contents($img, file_get_contents($imageUrl));
+            
+            $this->_imagePF[] = $imageFile;
+			$num++;
+        }
+    }
+    
+    public function getImagePF(){
+        if(!$this->_imagePF){
+            $this->saveImage();
+        }
+        return $this->_imagePF;
+    }
+    
+    /**
+    * @desc Return the title
+    * @return String
+    */
+    public function getTitle(){
+        // Get the title
+        if(isset($this->_data['recipeTitle'])){
+            return  $this->_data['recipeTitle'];
+        }else{
+            return false;
+        }
+    }
+    
+    /**
+    * @desc Return the ingredients rows
+    * @return String Array
+    */
+    public function getIngredientsArray(){
+        // Get the array
+        if(isset($this->_data['recipeIngredients'])){
+            return  $this->_data['recipeIngredients'];
+        }else{
+            return false;
+        }
+    }
+    
+    /**
+    * Get the from link
+    * 
+    * @return String
+    */
+    public function getFromUrl(){
+        return $this->_data['recipeLink'];
+    }
+    
+    
+    public function getDataSource($data){
+          $this->_data = $data;
+    }      
+}
+
+class UrlGoogleFormat implements DBSaveInterface
+{
+    // Define the from Url
+    private $_link = false;
+    private $_htmlObj = false; 
+    public $googleFormatObj = false;
+    
+    public function __construct($fromUrl = false)
+    {
+        if(!isset($fromUrl) || trim($fromUrl) == "")
+        {
+            return false;
+        }else{
+            $this->_link = $fromUrl;
+            $this->_htmlObj =  file_get_html($this->_link);
+        }
+        
+        // GoogleMicrodata
+        // GoogleMicroformats
+        // GoogleRDFa
+        
+        if($this->_htmlObj != false){        
+            $format = $this->getRecipeType();
+            if($format !== false){
+                $this->googleFormatObj = new $format($this->_link, $this->_htmlObj); 
+            }else{
+                return false;            
+            }
+        }else{
+            return false;
+        }
+    }
+    
+    public function getImageString(){
+        if($this->googleFormatObj){
+            $imageArray = $this->googleFormatObj->getImagePF();
+            $imageString = implode(';' , $imageArray);
+            return $imageString;            
+        }else{
+            return false;
+        }
+
+    }
+    
+    public function getImageArray(){
+        if($this->googleFormatObj){
+            return $this->googleFormatObj->getImagePF();
+        }else{
+            return false;
+        }
+    }
+    
+    public function getImageArrayOriginalUrl(){
+        if($this->googleFormatObj){
+            $imageArray = $this->googleFormatObj->getImage();       
+            $domain = $this->googleFormatObj->getDomainName();
+            $imageUrl = array();
+            $i = 0;
+            foreach($imageArray as $image){
+                if(strpos($image,"http://") !== false){
+                    // The URL is an obsolute address, we dont have to do anything   
+                    $imageUrl[$i] = $image;
+                }else{
+                    // The URL need domain name
+                   $imageUrl[$i] = "http://" . $domain . $image; 
+                }
+                $imageUrl[$i] = str_replace(' ', '%20', $imageUrl[$i]);
+                $i++;
+            }
+            return $imageUrl;
+        }else{
+            return false;
+        }       
+    }
+    public function getTitle(){
+        if($this->googleFormatObj){
+            return $this->googleFormatObj->getTitle();
+        }else{
+            return false;
+        }
+    }
+    
+    public function getIngredientsString(){
+        if($this->googleFormatObj){
+            $ingredientsArray = $this->googleFormatObj->getIngredients();
+            $ingredientsString = implode("<br />", $ingredientsArray);
+            return $ingredientsString;
+        }else{
+            return false;
+        }
+    }
+    
+    public function getIngredientsArray(){
+        if($this->googleFormatObj){
+            $ingredientsArray = $this->googleFormatObj->getIngredients();
+            return $ingredientsArray;
+        }else{
+            return false;
+        }       
+    }
+    
+    public function getFromUrl(){
+        return $this->_link;
+    }
+    
+    public function getRecipeType(){
+        
+        $type = false;
+        if($this->_htmlObj){
+            // Try the GoogleMicrodata Format
+            $microdata = $this->_htmlObj->find('[itemprop=name]');
+            if(count($microdata) > 0){
+                // We found more than 1 record.
+                $type =  "GoogleMicrodata";
+                return $type;
+            }
+            
+            $googlemicroformats = $this->_htmlObj->find('[class=fn]');
+            if(count($googlemicroformats) > 0){
+                // We found more than 1 record.
+                $type =  "GoogleMicroformats";
+                return $type;
+            }
+            $GoogleRDFa = $this->_htmlObj->find('[property=v:name]');
+            if(count($GoogleRDFa) > 0){
+                // We found more than 1 record.
+                $type =  "GoogleRDFa";
+                return $type;
+            }                
+            // Try the GoogleMicroformats
+        }else{
+        }
+        return $type;
+    }
+        
+}
+
+
+class GoogleFormat{
+    public $link = "";
+    public $html;
+    
+    public $image = false;
+    public $imagePF = false;
+    public $title = false;
+    public $ingredients = false;
+    public function __construct($fromUrl,$htmlObj)
+    {
+//        if(!isset($fromUrl) || trim($fromUrl) == "")
+//        {
+//            return false;
+//        }else{
+//            $this->link = $fromUrl;    
+//            $this->html = file_get_html($this->link);
+//        }
+            $this->link = $fromUrl;    
+            $this->html = $htmlObj;
+
+    }
+    
+    public function getDomainName(){
+        $urlArray = parse_url($this->link);
+        return $urlArray['host'];
+    }
+    
+    public function saveImage(){
+        
+        
+        $imageArray = $this->getImage();
+        $domain = $this->getDomainName();
+        
+        foreach($imageArray as $image){
+            $imageUrl = false;
+            if(strpos($image,"http://") !== false){
+                // The URL is an obsolute address, we dont have to do anything
+                $imageUrl = $image;
+            }else{
+                // The URL need domain name
+               $imageUrl = "http://" . $domain . $image; 
+            }
+            $imageUrl = str_replace(' ', '%20', $imageUrl); 
+            //echo $imageUrl;
+            $imageFile = md5(time() . $imageUrl) . '.jpg'; 
+            $img = CUSTOM_IMAGE_PATH . $imageFile ;
+            file_put_contents($img, file_get_contents($imageUrl));
+            
+            $this->imagePF[] = $imageFile;
+        }
+    }
+    
+    public function getImagePF(){
+        if(!$this->imagePF){
+            $this->saveImage();
+        }
+        return $this->imagePF;
+    }
+}
+
+// For the Google format - Microdata
+class GoogleMicrodata extends GoogleFormat implements GoogleFormatInterface
+{
+    /**
+    * @desc Return the image url
+    * @return String Array
+    */
+    public function getImage(){
+        if(!$this->image){
+            $image_array = $this->html->find('[itemprop=image]'); 
+            foreach($image_array as $image){
+                $images[] = $image->src;
+            }
+            $this->image = $images;
+        }
+        
+        return $this->image;
+    }
+    
+    /**
+    * @desc Return the title
+    * @return String
+    */
+    public function getTitle(){
+        if(!$this->title){
+            $this->title = trim($this->html->find('[itemprop=name]',0)->innertext);
+        }
+        return $this->title;
+    }
+    
+    /**
+    * @desc Return the ingredients rows
+    * @return String Array
+    */
+    public function getIngredients(){
+        if(!$this->ingredients){
+            $ingredients_array = $this->html->find('[itemprop=ingredients]');
+            foreach($ingredients_array as $ingredient){
+                $ing = trim($ingredient->innertext);
+                $ing = htmlspecialchars($ing);
+                $ing = mb_convert_encoding($ing, 'ISO-8859-1', 'UTF-8');
+                $ingredients[] = $ing;      
+            }
+
+            //print_r($ingredients); exit;
+            $this->ingredients = $ingredients;
+        }
+        return $this->ingredients;
+    } 
+}
+// For the Google format - Microformats
+class GoogleMicroformats extends GoogleFormat implements GoogleFormatInterface
+{
+    
+    /**
+    * @desc Return the image url
+    * @return String Array
+    */
+    public function getImage()
+    {
+        if(!$this->image){
+            $image_array = $this->html->find('[class=photo]'); 
+            foreach($image_array as $image){
+                $images[] = $image->src;
+            }
+            $this->image = $images;
+        }
+        
+        return $this->image;
+    }
+    
+    /**
+    * @desc Return the title
+    * @return String
+    */
+    public function getTitle(){
+        if(!$this->title){
+            $this->title = trim($this->html->find('[class=fn]',0)->innertext);
+        }
+        return $this->title; 
+    }
+    
+    /**
+    * @desc Return the ingredients rows
+    * @return String Array
+    */
+    public function getIngredients(){
+        if(!$this->ingredients){
+            $ingredients_array = $this->html->find('[class=ingredient]');
+            foreach($ingredients_array as $ingredient){
+                $ing = trim($ingredient->innertext);
+                $ing = htmlspecialchars($ing);
+                $ing = mb_convert_encoding($ing, 'ISO-8859-1', 'UTF-8');
+                $ingredients[] = $ing;
+            }
+            $this->ingredients = $ingredients;
+        }
+        return $this->ingredients;   
+    } 
+}
+// For the Google format - RDFa
+class GoogleRDFa extends GoogleFormat implements GoogleFormatInterface
+{
+    /**
+    * @desc Return the image url
+    * @return String Array
+    */
+    public function getImage(){
+        if(!$this->image){
+            $image_array = $this->html->find('[property=v:photo]'); 
+            foreach($image_array as $image){
+                $images[] = $image->src;
+            }
+            $this->image = $images;
+        }
+        
+        return $this->image; 
+    }
+    
+    /**
+    * @desc Return the title
+    * @return String
+    */
+    public function getTitle(){
+        if(!$this->title){
+            $this->title = trim($this->html->find('[property=v:name]',0)->innertext);
+        }
+        return $this->title; 
+    }
+    
+    /**
+    * @desc Return the ingredients rows
+    * @return String Array
+    */
+    public function getIngredients(){
+        if(!$this->ingredients){
+            $ingredients_array = $this->html->find('[typeof=v:Ingredient]');
+            foreach($ingredients_array as $ingredient){
+                $ing = trim($ingredient->innertext);
+                $ing = htmlspecialchars($ing);
+                $ing = mb_convert_encoding($ing, 'ISO-8859-1', 'UTF-8');
+                $ingredients[] = $ing;
+            }
+            $this->ingredients = $ingredients;
+        }
+        return $this->ingredients;
+    } 
+}
+
+
+
+//class CustomizeRecipeFormat extends GoogleFomat implements GoogleFormatInterface
+//{
+//    /**
+//    * @desc We will make the customized recipe format here
+//    * @author Leon Zhao
+//    */
+//    /**
+//    * @desc Return the image url
+//    * @return String Array
+//    */
+//    public function getImage(){
+//        if(!$this->image){
+//            $image_array = $this->html->find("[" . $this->_getIngredientsRule() . "]"); 
+//            foreach($image_array as $image){
+//                $images[] = $image->src;
+//            }
+//            $this->image = $images;
+//        }
+//        
+//        return $this->image; 
+//    }
+//    
+//    /**
+//    * @desc Return the title
+//    * @return String
+//    */
+//    public function getTitle(){
+//        if(!$this->title){
+//            $this->title = $this->html->find("[" . $this->_getTitleRule() . "]",0)->innertext;
+//        }
+//        return $this->title; 
+//    }
+//    
+//    /**
+//    * @desc Return the ingredients rows
+//    * @return String Array
+//    */
+//    public function getIngredients(){
+//        if(!$this->ingredients){
+//            $ingredients_array = $this->html->find("[" . $this->_getIngredientsRule() . "]");
+//            foreach($ingredients_array as $ingredient){
+//                $ingredients[] = $ingredient->innertext;
+//            }
+//            $this->ingredients = $ingredients;
+//        }
+//        return $this->ingredients;
+//    }
+//    
+//    private function _getImageRule();
+//    private function _getTitleRule();
+//    private function _getIngredientsRule();
+//    
+//}
+
+
+
+/**
+* @desc Here comes the model classes. We will import the YooRecipe tables as the target
+* @author Leon Zhao
+* @desc The prefix: sf_
+* @desc Insert tables: yoorecipe, assets, yoorecipe_categories, yoorecipe_ingredients
+* @desc ignore tables: yoorecipe_favourites, yoorecipe_ingredients_groups, yoorecipe_rating, yoorecipe_seasons, yoorecipe_tags, yoorecipe_units
+*/
+
+
+
+class Model_Yoorecipe{
+    
+    private $_recipe = false;     // The GoogleFormatInterface object
+    
+    private $_yoorecipe_recipe_id = false;
+    private $_asset_id = false;
+    
+    public function __construct($obj = false){
+        // We need to initialize first. Make sure we are working on somthing physically exists but not our imagination. 
+        if($obj){
+            $this->_recipe = $obj;
+        }else{
+            return false;
+        }             
+    } 
+    
+    /**
+    * @desc Save the recipes
+    * @return (int) insert id or false if failed;
+    * @author by Leon Zhao
+    */
+    private function _save_yoorecipe(){
+        
+        $user = JFactory::getUser(); 
+        
+        
+        // Get ready the data from the Google object
+        $image = $this->_recipe->getImageArray();
+        $title = $this->_recipe->getTitle();
+        $title = str_replace("\"", "'", $title);
+        $title = addslashes($title);
+        
+        $alias = str_replace(" ",'-',$title);
+        $alias = str_replace("'", '_', $alias);
+        $alias = str_replace("\"", '_', $alias);
+        
+        // Don't need the ingredients right now. We will hand over this to the ingredients save function
+        //$ingredients = $this->_recipe->getIngredientsString();
+        
+        $image1 = isset($image[0])? "images/com_yoorecipe/" . $image[0]:'';
+        $image2 = isset($image[1])? "images/com_yoorecipe/" . $image[1]:'';
+        $image3 = isset($image[2])? "images/com_yoorecipe/" . $image[2]:'';
+        
+        $fromurl = $this->_recipe->getFromUrl();
+        
+        $time = date("Y-m-d H:m:s", time());
+   
+        $insert_sql = "INSERT INTO `savvyfork_live`.`sf_yoorecipe` 
+            (`id`, `asset_id`, `access`, `category_id`, `created_by`, `user_id`, `title`, 
+                `alias`, `description`, `preparation`, `servings_type`, `nb_persons`, `difficulty`, `cost`, `carbs`, `fat`, `saturated_fat`, `proteins`, `fibers`, `salt`, `kcal`, 
+                    `kjoule`, `diet`, `veggie`, `gluten_free`, `lactose_free`, `seasons`, `creation_date`, `publish_up`, `publish_down`, 
+                        `preparation_time`, `cook_time`, `wait_time`, `featured`, 
+                            `picture`, `picture2`, `picture3`, 
+                                `video`, `published`, `validated`, `nb_views`, `note`, `metakey`, `metadata`, `price`, `language`) VALUES 
+            ('" . $this->_yoorecipe_recipe_id . "', '" . $this->_asset_id . "', '1', '0', '" . $user->id . "', '0', '$title', 
+                '$alias', '$alias', '$fromurl', 'P', '4', '1', '1', '0', '0', '0', '0', '0', '0', '0', 
+                    NULL, '1', '1', '1', '1', NULL, '$time', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 
+                        '0', '0', '0', '0', 
+                            '$image1', '$image2', '$image3', 
+                                '', '0', '1', '0', NULL, '', '', '0', '*');";
+        
+        $insert_result = leonQuery($insert_sql);
+        
+         return $insert_result;
+        
+    }
+    private function _save_assets(){ 
+        
+        // Get the latest assets number first
+        $sql = "SELECT rgt FROM `sf_assets` ORDER BY rgt DESC LIMIT 1 ";
+        $r = leonQuery($sql);
+        $row = mysql_fetch_array($r);
+        $latest_asset_num = $row[0];
+        $lft = $latest_asset_num + 1;
+        $rgt = $latest_asset_num + 2;
+        
+        // Get the latest yoorecipe id number as well.
+        $r = leonQuery("show table status like 'sf_yoorecipe'");
+        $this->_yoorecipe_recipe_id = mysql_result($r, 0, 'Auto_increment');
+        
+        // To make sure we wouldn't have duplicated issue
+        $delete_sql = "DELETE FROM sf_assets where name ='#__yoorecipe." . $this->_yoorecipe_recipe_id . "'";
+        leonQuery($delete_sql);
+        
+        
+        // We have yoorecipe ID and the latest assets number now. Let's get down to add the record in the assets table:
+        $insert_sql = "INSERT INTO `sf_assets` 
+                (`id`, `parent_id`, `lft`, `rgt`, `level`, `name`, `title`, `rules`) VALUES 
+                (NULL, 1, $lft, $rgt, 1, '#__yoorecipe." . $this->_yoorecipe_recipe_id . "', '#__yoorecipe." . $this->_yoorecipe_recipe_id . "', '')";
+                
+        $result = leonQuery($insert_sql);
+        // Note that mysql_insert_id will be expired. We will update this in the future:
+        $this->_asset_id = mysql_insert_id();
+        
+        if($this->_asset_id !== false){
+            return true;
+        }else{
+            return false;
+        }           
+    }
+    
+    // Handle the yoorecipe category table
+    private function _save_categories(){
+        $sql = "INSERT INTO `sf_yoorecipe_categories` (`recipe_id`, `cat_id`) VALUES ('" . $this->_yoorecipe_recipe_id . "', '14');";
+        $r = leonQuery($sql);
+        if($r){
+            return true;
+        }else{
+            return false;
+        }
+        
+    }
+    private function _save_ingredients(){
+        
+        $ingredients = $this->_recipe->getIngredientsArray(); 
+        
+        foreach($ingredients as $ingredient){
+            $ingredient = addslashes($ingredient);
+            $ingredient = 
+            $sql = "INSERT INTO `sf_yoorecipe_ingredients` 
+                (`id`, `recipe_id`, `group_id`, `ordering`, `quantity`, `unit`, `description`, `price`) VALUES 
+                (NULL, '" . $this->_yoorecipe_recipe_id . "', '1', '1', '1', '', '$ingredient', '')";        
+            $r = leonQuery($sql);
+        }   
+        
+        // Just record the last instance of the insert result.
+        return $r;
+
+    }
+    
+    public function save()
+    {
+         // We will save the asset first
+        $flag['asset'] = $this->_save_assets();
+        
+        // Now we need to update the yoorecipe table
+        $flag['recipe'] = $this->_save_yoorecipe();
+        
+        // Save the recipe categories
+        $flag['category'] = $this->_save_categories();
+        
+        // Then come the last step, save the ingredients, but there may be more than 1 ingredients. So it is an array sets
+        $flag['ingredients'] = $this->_save_ingredients();
+        
+        // We have done now.
+        if($flag['asset'] && $flag['recipe'] && $flag['category'] && $flag['ingredients']){
+            return true;
+        }else{
+            return false;
+        }                                                   
+    }
+    
+    private function _get_user_id(){
+        return 1;
+    }
+}
+
+
+function leonQuery($query = false){
+    global $db_link;
+    $r = mysql_query($query, $db_link);
+    if($r){
+        if(LEON_DEBUG)echo "<div style='font-size:12px;'>" . $query . "</dev>";
+        return $r;
+    }else{
+        if(LEON_DEBUG)echo "<p><font color=red>" . mysql_error() . "</font><br /> on<br /> <font color=blue>$query</font></p>";
+        exit;
+    }
+    
+}
+
+
+// Here we go with some demo show
+
+
+
+//<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /></head>
+
+
+
+
+//$link = "http://allrecipes.com/Recipe/Chicken-Breasts-with-Balsamic-Vinegar-and-Garlic/Detail.aspx";
+//$link2 = "http://www.recipe4living.com/recipes/pillsbury_pigs_in_a_blanket_bake.htm";
+
+//$googleObj = new UrlGoogleFormat($link2);
+//$googleObj->display(); 
+     
+?>
