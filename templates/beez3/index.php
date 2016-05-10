@@ -580,5 +580,7 @@ if($menu->getActive() != $menu->getDefault() && !in_array($view,$viewArray))
 </script>
 <!-- -SWOOP -->
 
+<?php include 'partials/ads/underdog.php'; ?>
+
 </body>
 </html>
