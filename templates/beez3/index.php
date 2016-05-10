@@ -420,7 +420,7 @@ if($menu->getActive() != $menu->getDefault() && !in_array($view,$viewArray))
 						}
 						else
 						{
-							include "footer_banner.php";
+							include 'partials/ads/footer_banner.php';
 						}
 					}?>
 					
