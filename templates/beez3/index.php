@@ -552,8 +552,6 @@ if($menu->getActive() != $menu->getDefault() && !in_array($view,$viewArray))
 <?php // if (isset($_GET['nl_signup']) && strtoupper(trim($_GET['nl_signup'])) == 'Y') { include_once("dhtml2.php"); } ?>
 <!-- Google Ads issue -->
 
-<!-- LiveRamp --><iframe name="_rlcdn" width=0 height=0 frameborder=0 src="http://rc.rlcdn.com/381139.html"></iframe><!-- LiveRamp -->
-
 <!-- +SWOOP -->
 <script type="text/javascript">
   (function addSwoopOnce(domain) {
@@ -581,6 +579,8 @@ if($menu->getActive() != $menu->getDefault() && !in_array($view,$viewArray))
 <!-- -SWOOP -->
 
 <?php include 'partials/ads/underdog.php'; ?>
+
+<?php include 'partials/ads/liveramp.php'; ?>
 
 </body>
 </html>
