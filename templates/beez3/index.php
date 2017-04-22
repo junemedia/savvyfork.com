@@ -84,12 +84,12 @@ if($menu->getActive() != $menu->getDefault() && !in_array($view,$viewArray))
 <html class="no-touch csstransitions" lang="en-US" xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>" >
 	<head>
 		<script type="text/javascript">
-			var mobile_domain ="m.savvyfork.com";
-			// Set to false to not redirect on iPad.
-			var ipad = false;
-			// Set to false to not redirect on other tablets (Android , BlackBerry, WebOS tablets).
-			var other_tablets = false;
-			document.write(unescape("%3Cscript src='"+location.protocol+"//s3.amazonaws.com/me.static/js/me.redirect.min.js' type='text/javascript'%3E%3C/script%3E"));
+			/* var mobile_domain ="m.savvyfork.com"; */
+			/* // Set to false to not redirect on iPad. */
+			/* var ipad = false; */
+			/* // Set to false to not redirect on other tablets (Android , BlackBerry, WebOS tablets). */
+			/* var other_tablets = false; */
+			/* document.write(unescape("%3Cscript src='"+location.protocol+"//s3.amazonaws.com/me.static/js/me.redirect.min.js' type='text/javascript'%3E%3C/script%3E")); */
 		</script>
 		
 		<?php require __DIR__ . '/jsstrings.php';?>
