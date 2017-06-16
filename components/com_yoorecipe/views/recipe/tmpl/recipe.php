@@ -396,6 +396,11 @@ if (isset($recipe) && $recipe->published && $recipe->validated) {
         <?php if ($use_google_recipe) : ?>
         </div><!-- /.hrecipe -->
         <?php endif; ?>
+
+        <div style="margin:30px auto 0;">
+          <?php include "templates/beez3/partials/ads/lockerdome.html"; ?>
+        </div>
+
       </div><!-- /#recipe-part -->
 
 <?php
