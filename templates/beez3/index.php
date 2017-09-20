@@ -579,7 +579,6 @@ if($menu->getActive() != $menu->getDefault() && !in_array($view,$viewArray))
 <!-- -SWOOP -->
 
 <?php include 'partials/ads/underdog.php'; ?>
-<?php include 'partials/ads/liveramp.php'; ?>
 <?php include 'partials/ads/liveconnect.php'; ?>
 
 </body>
