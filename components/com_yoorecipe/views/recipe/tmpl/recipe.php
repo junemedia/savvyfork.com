@@ -190,8 +190,6 @@ function pluralTosingular($word) {
   });
 </script>
 
-<?php include "templates/beez3/partials/ads/tynt_js.php"; ?>
-
 <?php
 if (isset($recipe) && $recipe->published && $recipe->validated) {
 
