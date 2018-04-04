@@ -160,6 +160,24 @@ if ($menu->getActive() != $menu->getDefault() && !in_array($view,$viewArray)) {
       yieldbot.go();
   </script>
   <!-- END Yieldbot.com Intent Tag -->
+
+  <!-- DFP javascript -->
+  <script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+  <script>
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+  </script>
+
+  <script>
+    googletag.cmd.push(function() {
+      googletag.defineSlot('/21629509932/SF', [[728, 90], [300, 250]], 'div-gpt-ad-1516912681772-0').addService(googletag.pubads());
+      googletag.defineSlot('/21629509932/SF/SF_300x250ATF', [300, 250], 'div-gpt-ad-1516912681772-1').addService(googletag.pubads());
+      googletag.defineSlot('/21629509932/SF/SF_300x250BTF', [300, 250], 'div-gpt-ad-1516912681772-2').addService(googletag.pubads());
+      googletag.defineSlot('/21629509932/SF/SF_728x90BTF', [728, 90], 'div-gpt-ad-1516912681772-3').addService(googletag.pubads());
+      googletag.pubads().enableSingleRequest();
+      googletag.enableServices();
+    });
+  </script>
 </head>
 
 <body id="shadow">
@@ -380,9 +398,11 @@ if ($menu->getActive() != $menu->getDefault() && !in_array($view,$viewArray)) {
           if (array_search(13, $recipe_author->groups)) {
             echo $author_profile->profile["footerbanner"];
           }
-          else {
-            include 'partials/ads/footer_banner.php';
-          }
+          else { ?>
+            <div style="width: 728px; margin: 1.5em auto; clear: both;">
+              <?php include 'partials/ads/728x90btf.php'; ?>
+            </div>
+          <?php }
         } ?>
 
         <div class="wrap"></div>
