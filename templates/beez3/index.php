@@ -433,7 +433,7 @@ if ($menu->getActive() != $menu->getDefault() && !in_array($view,$viewArray)) {
             <a href="http://www.junemedia.com/" target="_blank" style="font-size:12px;">June Media Inc.</a> All rights reserved. All third party content &copy; their respective owners.
             <a href="/index.php/terms-of-use" style="font-size:12px;">Terms of Use</a> |
             <a href="/index.php/privacy-policy" style="font-size:12px;">Privacy Policy</a> |
-            <a href='/subctr' style="font-size:12px;">Manage My Newsletters</a>
+            <!--<a href='/subctr' style="font-size12px;">Manage My Newsletters</a>-->
           </span><br><br><br><br>
         </div>
       </div>
