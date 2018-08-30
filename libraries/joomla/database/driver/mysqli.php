@@ -488,36 +488,8 @@ class JDatabaseDriverMysqli extends JDatabaseDriver
 		$this->errorNum = 0;
 		$this->errorMsg = '';
 
-        // Get the sql query time
-        // Add by Leon
-        // Start timer
-        $time = microtime();
-        $time = explode(' ', $time);
-        $time = $time[1] + $time[0];
-        $start = $time;
-        
-        
 		// Execute the query. Error suppression is used here to prevent warnings/notices that the connection has been lost.
 		$this->cursor = @mysqli_query($this->connection, $sql);
-        
-        // Get the sql query time
-        // Add by Leon
-        $time = microtime();
-        $time = explode(' ', $time);
-        $time = $time[1] + $time[0];
-        $end = $time;
-        $exacuteTime = round(($end - $start), 5);
-        
-        saveSqlLog($exacuteTime,$sql, $this->connection);
-        //echo "<div>" . $sql . "<hr></div>";
-        // If debugging is enabled then let's log the query.
-        if ($this->debug)
-        {
-            // Add the query to the object queue.
-            $this->log[] = "Query in $exacuteTime seconds " . $sql;
-
-            JLog::add($sql, JLog::DEBUG, 'databasequery');
-        }
 
 		// If an error occurred handle it.
 		if (!$this->cursor)
