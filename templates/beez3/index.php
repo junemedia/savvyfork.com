@@ -507,7 +507,6 @@ if ($menu->getActive() != $menu->getDefault() && !in_array($view,$viewArray)) {
 
   <?php include 'partials/ads/underdog.php'; ?>
   <?php include 'partials/ads/liveconnect.php'; ?>
-  <?php include 'partials/ads/tynt_js.php'; ?>
 
 </body>
 </html>
