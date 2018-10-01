@@ -77,6 +77,9 @@ if ($menu->getActive() != $menu->getDefault() && !in_array($view,$viewArray)) {
 <!DOCTYPE html>
 <html class="no-touch csstransitions" lang="en-US" xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>" >
 <head>
+
+  <?php include 'partials/ads/adthrive_js.php'; ?>
+
   <?php require __DIR__ . '/jsstrings.php';?>
   <meta name="google-site-verification" content="Icf4sVy0OPI9T4b9qcOV9e9wC7ofSMZImJ3l_SJCnBM" />
 
