@@ -143,16 +143,6 @@ if ($menu->getActive() != $menu->getDefault() && !in_array($view,$viewArray)) {
   </style>
   <?php }?>
 
-  <!-- Yieldbot.com Intent Tag -->
-  <script type="text/javascript" src="https://cdn.yldbt.com/js/yieldbot.intent.js"></script>
-  <script type="text/javascript">
-      yieldbot.psn('e69d');
-      yieldbot.defineSlot('LB');
-      yieldbot.defineSlot('MR');
-      yieldbot.defineSlot('MR_BTF')
-      yieldbot.go();
-  </script>
-  <!-- END Yieldbot.com Intent Tag -->
 </head>
 
 <body id="shadow">
@@ -369,14 +359,9 @@ if ($menu->getActive() != $menu->getDefault() && !in_array($view,$viewArray)) {
           $recipe_author = JFactory::getUser($userId);
           $author_profile = JUserHelper::getProfile($userId);
 
-          // "Sponsored" group id is 13
-          if (array_search(13, $recipe_author->groups)) {
-            echo $author_profile->profile["footerbanner"];
-          }
-          else {
-            include 'partials/ads/footer_banner.php';
-          }
         } ?>
+
+          <div style="clear: both;margin-bottom: 20px"></div>
 
         <div class="wrap"></div>
       </div> <!-- end contentarea -->
