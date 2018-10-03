@@ -493,7 +493,6 @@ if ($menu->getActive() != $menu->getDefault() && !in_array($view,$viewArray)) {
 
   <?php if (isset($_GET['dhtml']) && strtoupper(trim($_GET['dhtml'])) == 'Y') { include_once("dhtml.php"); } ?>
 
-  <?php include 'partials/ads/underdog.php'; ?>
   <?php include 'partials/ads/liveconnect.php'; ?>
 
 </body>
