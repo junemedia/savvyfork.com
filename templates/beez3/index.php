@@ -77,10 +77,6 @@ if ($menu->getActive() != $menu->getDefault() && !in_array($view,$viewArray)) {
 <!DOCTYPE html>
 <html class="no-touch csstransitions" lang="en-US" xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>" >
 <head>
-  <!-- Duda mobile redirect -->
-  <script src="http://static.mobilewebsiteserver.com/redirect.js" type="text/javascript"></script>
-  <script type="text/javascript">Mobile_redirect("http://m.savvyfork.com");</script>
-
   <?php require __DIR__ . '/jsstrings.php';?>
   <meta name="google-site-verification" content="Icf4sVy0OPI9T4b9qcOV9e9wC7ofSMZImJ3l_SJCnBM" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes"/>
