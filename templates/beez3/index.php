@@ -79,9 +79,6 @@ if ($menu->getActive() != $menu->getDefault() && !in_array($view,$viewArray)) {
 <head>
   <?php require __DIR__ . '/jsstrings.php';?>
   <meta name="google-site-verification" content="Icf4sVy0OPI9T4b9qcOV9e9wC7ofSMZImJ3l_SJCnBM" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes"/>
-  <meta name="HandheldFriendly" content="true" />
-  <meta name="apple-mobile-web-app-capable" content="YES" />
 
   <jdoc:include type="head" />
   <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
