@@ -1,5 +1,5 @@
 # ads.txt savvyfork.com
-# 2019-02-15
+# 2019-04-10
 # ----------------------------------------------------------------------
 
 
@@ -99,3 +99,7 @@ lockerdome.com, 8567891478090497, DIRECT
 # ----------------------------------------------------------------------
 liveintent.com, 783, DIRECT
 liveintent.com, 4510, DIRECT
+liveintent.com, 47467, DIRECT
+liveintent.com, 47468, DIRECT
+liveintent.com, 47470, DIRECT
+liveintent.com, 47469, DIRECT
