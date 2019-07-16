@@ -82,6 +82,7 @@ if ($menu->getActive() != $menu->getDefault() && !in_array($view,$viewArray)) {
 
   <?php require __DIR__ . '/jsstrings.php';?>
   <meta name="google-site-verification" content="Icf4sVy0OPI9T4b9qcOV9e9wC7ofSMZImJ3l_SJCnBM" />
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests;block-all-mixed-content">
 
   <jdoc:include type="head" />
   <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
